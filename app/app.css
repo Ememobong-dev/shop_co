@@ -1,15 +1,59 @@
 @import "tailwindcss";
 
+
+@font-face {
+  font-family: "Satoshi-reg";
+  src: url("../public/fonts/Satoshi_Complete/Fonts/OTF/Satoshi-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi-medium";
+  src: url("../public/fonts/Satoshi_Complete/Fonts/OTF/Satoshi-Medium.otf") format("opentype");
+  font-weight: medium;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "integral-reg";
+  src: url("../public/fonts/Integral-CF/Demo_Fonts/Fontspring-DEMO-integralcf-regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "integral-bold";
+  src: url("../public/fonts/Integral-CF/Demo_Fonts/Fontspring-DEMO-integralcf-bold.otf") format("opentype");
+  font-weight: bold;
+}
+
+
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    /* fonts */
+  --font-satoshi-reg: "Satoshi-reg";
+  --font-satoshi-med: "Satoshi-medium";
+  --font-integral-reg: "integral-reg";
+  --font-integral-bold: "integral-bold";
+
+  /* colors */
+  --color-white-50: #F0F0F0;
+  --color-white-100: #F2F0F1;
+
+  /* breakpoint */
+  --breakpoint-3xl: 1400px
 }
 
-html,
+
+
+/* html,
 body {
   @apply bg-white dark:bg-gray-950;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
-}
+} */
