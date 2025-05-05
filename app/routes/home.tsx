@@ -1,6 +1,12 @@
 import { Button } from "~/components/Button";
 import type { Route } from "./+types/home";
 import header_img from "../assets/images/header-img--cropped.jpg";
+import versace from "../assets/svgs/versace.svg";
+import zara from "../assets/svgs/zara.svg";
+import gucci from "../assets/svgs/gucci.svg";
+import prada from "../assets/svgs/prada.svg";
+import calvin from "../assets/svgs/calvin.svg";
+import line from "../assets/svgs/separation-line.svg";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -13,8 +19,8 @@ export default function Home() {
   return (
     <div>
       {/* hero area */}
-      <div className="h-screen">
-        <div className="bg-white-100 w-full p-28 flex items-start h-full">
+      <div className="h-dvh">
+        <div className="bg-white-100 w-full px-28 pt-28 flex gap-8 items-start">
           <div className="flex flex-col gap-5 w-1/2 ">
             <h2 className="font-integral-bold text-7xl">
               FIND CLOTHES THAT MATCHES YOUR STYLE
@@ -27,19 +33,59 @@ export default function Home() {
             <div>
               <Button text="Shop Now" />
             </div>
+            <div className="flex justify-between">
+              <div className="flex flex-col gap-1">
+                <h3 className="font-satoshi-bold text-4xl"> 200+</h3>
+                <p className="text-black/60 tetx-base font-satoshi-reg">
+                  International Brands
+                </p>
+              </div>
+              <span>
+                <img src={line} alt="partners_icon" />
+              </span>
+              <div className="flex flex-col gap-1">
+                <h3 className="font-satoshi-bold text-4xl"> 2,000+</h3>
+                <p className="text-black/60 tetx-base font-satoshi-reg">
+                  High-Quality Products
+                </p>
+              </div>
+              <span>
+                <img src={line} alt="partners_icon" />
+              </span>
+              <div className="flex flex-col gap-1">
+                <h3 className="font-satoshi-bold text-4xl">30,000+</h3>
+                <p className="text-black/60 tetx-base font-satoshi-reg">
+                  Happy Customers
+                </p>
+              </div>
+            </div>
           </div>
           <div className="w-1/2 ">
             <div className="">
               <img
                 src={header_img}
-                className="w-full h-auto object-cover "
+                className="w-full h-[500px] object-fill "
                 alt="img"
               />
             </div>
           </div>
         </div>
-        <div>
-          
+        <div className="flex justify-between items-center bg-black py-14 px-32">
+          <span>
+            <img src={versace} alt="partners_icon" />
+          </span>
+          <span>
+            <img src={zara} alt="partners_icon" />
+          </span>
+          <span>
+            <img src={gucci} alt="partners_icon" />
+          </span>
+          <span>
+            <img src={prada} alt="partners_icon" />
+          </span>
+          <span>
+            <img src={calvin} alt="partners_icon" />
+          </span>
         </div>
       </div>
     </div>

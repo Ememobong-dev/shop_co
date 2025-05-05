@@ -13,6 +13,13 @@
   src: url("../public/fonts/Satoshi_Complete/Fonts/OTF/Satoshi-Medium.otf") format("opentype");
   font-weight: medium;
   font-style: normal;
+
+}
+@font-face {
+  font-family: "Satoshi-bold";
+  src: url("../public/fonts/Satoshi_Complete/Fonts/OTF/Satoshi-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
@@ -35,6 +42,7 @@
 
     /* fonts */
   --font-satoshi-reg: "Satoshi-reg";
+  --font-satoshi-bold: "Satoshi-bold";
   --font-satoshi-med: "Satoshi-medium";
   --font-integral-reg: "integral-reg";
   --font-integral-bold: "integral-bold";
