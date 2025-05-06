@@ -7,6 +7,8 @@ import gucci from "../assets/svgs/gucci.svg";
 import prada from "../assets/svgs/prada.svg";
 import calvin from "../assets/svgs/calvin.svg";
 import line from "../assets/svgs/separation-line.svg";
+import { CenteredText } from "~/components/CenteredHeaderText";
+import newArrivals from "../assets/data/newArrival.json";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -17,15 +19,15 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div>
+    <div className="flex flex-col gap-14">
       {/* hero area */}
-      <div className="h-dvh">
-        <div className="bg-white-100 w-full px-28 pt-28 flex gap-8 items-start">
-          <div className="flex flex-col gap-5 w-1/2 ">
-            <h2 className="font-integral-bold text-7xl">
+      <div className="h-full">
+        <div className="bg-white-100 w-full flex gap-8 items-start">
+          <div className="flex flex-col gap-5 w-1/2 px-32 py-32 ">
+            <h2 className="font-integral-bold text-6xl">
               FIND CLOTHES THAT MATCHES YOUR STYLE
             </h2>
-            <p className="text-base font-satoshi-reg w-2/3 text-black/60">
+            <p className="text-base font-satoshi-reg text-black/60">
               Browse through our diverse range of meticulously crafted garments,
               designed to bring out your individuality and cater to your sense
               of style.
@@ -60,11 +62,11 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-1/2 ">
-            <div className="">
+          <div className="w-1/2 bg-amber-700 ">
+            <div>
               <img
                 src={header_img}
-                className="w-full h-[500px] object-fill "
+                className="w-full h-[700px] object-fill "
                 alt="img"
               />
             </div>
@@ -87,6 +89,16 @@ export default function Home() {
             <img src={calvin} alt="partners_icon" />
           </span>
         </div>
+      </div>
+      {/* Second area */}
+      <div>
+        <CenteredText text="New Arrivals" />
+        <div>
+          {newArrivals.
+
+
+          }
+          </div>
       </div>
     </div>
   );
