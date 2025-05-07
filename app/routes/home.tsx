@@ -10,10 +10,13 @@ import grid1 from "../assets/svgs/grid1.svg";
 import grid2 from "../assets/svgs/grid2.svg";
 import grid3 from "../assets/svgs/grid3.svg";
 import grid4 from "../assets/svgs/grid4.svg";
+import arrowLeft from "../assets/svgs/arrow-left.svg";
+import arrowRight from "../assets/svgs/arrow-right.svg";
 import line from "../assets/svgs/separation-line.svg";
 import { CenteredText } from "~/components/CenteredHeaderText";
 import newArrivals from "../assets/data/newArrival.json";
 import topSelling from "../assets/data/topSelling.json";
+import { Footer } from "~/components/Footer/footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -21,6 +24,45 @@ export function meta({}: Route.MetaArgs) {
     { name: "description", content: "Welcome to React Router!" },
   ];
 }
+
+const testimonial = [
+  {
+    testifier: "Sarah M",
+    testimony:
+      "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+    ratings: 5,
+  },
+  {
+    testifier: "Alex K",
+    testimony:
+      "inding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+    ratings: 5,
+  },
+  {
+    testifier: "James L",
+    testimony:
+      "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+    ratings: 5,
+  },
+  {
+    testifier: "Moose J",
+    testimony:
+      "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+    ratings: 4,
+  },
+  {
+    testifier: "Sarah M",
+    testimony:
+      "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+    ratings: 3.5,
+  },
+  {
+    testifier: "James M",
+    testimony:
+      "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+    ratings: 5,
+  },
+];
 
 export default function Home() {
   return (
@@ -150,13 +192,37 @@ export default function Home() {
 
         {/* fifth -- testimonials */}
         <div>
-          <div className="lex justify-between">
-           <h3 className="text-5xl mb-16 font-integral-bold ">
-            OUR HAPPY CUSTOMERS
-          </h3> 
+          <div className="flex items-center justify-between">
+            <h3 className="text-5xl mb-16 font-integral-bold ">
+              OUR HAPPY CUSTOMERS
+            </h3>
+            <div className="flex gap-2">
+              <span>
+                <img src={arrowLeft} alt="arrow" />
+              </span>
+              <span>
+                <img src={arrowRight} alt="arrow" />
+              </span>
+            </div>
           </div>
+
+
+          <div className="flex gap-5 overflow-x-scroll w-full">
+            {testimonial.map((item, index) => (
+              <div key={index} className="border rounded-lg !w-[500px] h-[250px] border-black/10 p-7 shrink-0">
+                <p> {item.testifier} </p>
+                <p> "{item.testimony}" </p>
+              </div>
+            ))
+
+            }
+          </div>
+
           
         </div>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );
