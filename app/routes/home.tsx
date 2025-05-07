@@ -6,9 +6,14 @@ import zara from "../assets/svgs/zara.svg";
 import gucci from "../assets/svgs/gucci.svg";
 import prada from "../assets/svgs/prada.svg";
 import calvin from "../assets/svgs/calvin.svg";
+import grid1 from "../assets/svgs/grid1.svg";
+import grid2 from "../assets/svgs/grid2.svg";
+import grid3 from "../assets/svgs/grid3.svg";
+import grid4 from "../assets/svgs/grid4.svg";
 import line from "../assets/svgs/separation-line.svg";
 import { CenteredText } from "~/components/CenteredHeaderText";
 import newArrivals from "../assets/data/newArrival.json";
+import topSelling from "../assets/data/topSelling.json";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -19,7 +24,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-14">
+    <div>
       {/* hero area */}
       <div className="h-full">
         <div className="bg-white-100 w-full flex gap-8 items-start">
@@ -33,7 +38,7 @@ export default function Home() {
               of style.
             </p>
             <div>
-              <Button text="Shop Now" />
+              <Button variant="filled" text="Shop Now" />
             </div>
             <div className="flex justify-between">
               <div className="flex flex-col gap-1">
@@ -90,15 +95,68 @@ export default function Home() {
           </span>
         </div>
       </div>
-      {/* Second area */}
-      <div>
-        <CenteredText text="New Arrivals" />
+      <div className="flex flex-col gap-14 px-32">
+        {/* Second area */}
         <div>
-          {newArrivals.
-
-
-          }
+          <CenteredText text="New Arrivals" />
+          <div className="flex justify-between mt-10">
+            {newArrivals.map((item, index) => (
+              <div key={index}>
+                <img src={item.image} />
+                <div>
+                  <p> {item.title} </p>
+                  <p> {item.price} </p>
+                </div>
+              </div>
+            ))}
           </div>
+          <div className="flex justify-center mt-10">
+            <Button variant="bordered" text="View All" />
+          </div>
+        </div>
+        <hr />
+        {/* third area */}
+        <div>
+          <CenteredText text="New Arrivals" />
+          <div className="flex justify-between mt-10">
+            {topSelling.map((item, index) => (
+              <div key={index}>
+                <img src={item.image} />
+                <div>
+                  <p> {item.title} </p>
+                  <p> {item.price} </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-center mt-10">
+            <Button variant="bordered" text="View All" />
+          </div>
+        </div>
+        {/* fourth */}
+        <div className="bg-white-50 rounded-[40px] p-20">
+          <h3 className="text-5xl mb-16 font-integral-bold text-center">
+            BROWSE BY DRESS STYLE
+          </h3>
+          <div className="flex justify-center gap-6 items-stretch w-full">
+            <img src={grid1} className="" alt="grid_img" />
+            <img src={grid2} alt="grid_img" />
+          </div>
+          <div className="flex mt-6  gap-6 justify-center items-stretch w-full">
+            <img src={grid3} className="" alt="grid_img" />
+            <img src={grid4} className="" alt="grid_img" />
+          </div>
+        </div>
+
+        {/* fifth -- testimonials */}
+        <div>
+          <div className="lex justify-between">
+           <h3 className="text-5xl mb-16 font-integral-bold ">
+            OUR HAPPY CUSTOMERS
+          </h3> 
+          </div>
+          
+        </div>
       </div>
     </div>
   );

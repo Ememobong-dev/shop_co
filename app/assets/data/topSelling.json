@@ -3,28 +3,28 @@
      "title": "VERTICAL STRIPED SHIRT",
      "price": 232,
      "rating": 5.0,
-     "image": "/image/1.png",
+     "image": "/top-selling/image1.svg",
      "discount": 20
     },
     {
      "title": "COURAGE GRAPHIC T-SHIRT",
      "price": 145,
      "rating": 4.0,
-     "image": "/image/1.png",
+     "image": "/top-selling/image2.svg",
      "discount": 0
     },
     {
      "title": "LOOSE FIT BERMUDA SHORTS",
      "price": 80,
      "rating": 3.0,
-     "image": "/image/1.png",
+     "image": "/top-selling/image3.svg",
      "discount": 0
     },
     {
      "title": "FADED SKINNY JEANS",
      "price": 210,
      "rating": 4.5,
-     "image": "/image/1.png",
+     "image": "/top-selling/image4.svg",
      "discount": 0
     }
  ]
