@@ -16,7 +16,9 @@ import line from "../assets/svgs/separation-line.svg";
 import { CenteredText } from "~/components/CenteredHeaderText";
 import newArrivals from "../assets/data/newArrival.json";
 import topSelling from "../assets/data/topSelling.json";
-import { Footer } from "~/components/Footer/footer";
+import smallStar from "../assets/svgs/small-star.svg";
+import bigStar from "../assets/svgs/big-star.svg";
+import { Footer } from "~/components/Footer/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -64,13 +66,18 @@ const testimonial = [
   },
 ];
 
+const actualPriceFn = ({price, discount}: {price: number; discount: number}) => {
+  let discountPrice = (discount/100) * price;
+  return price - discountPrice;
+}
+
 export default function Home() {
   return (
     <div>
       {/* hero area */}
       <div className="h-full">
-        <div className="bg-white-100 w-full flex gap-8 items-start">
-          <div className="flex flex-col gap-5 w-1/2 px-32 py-32 ">
+        <div className="bg-white-100 w-full flex gap-8 items-stretch">
+          <div className="flex flex-col min-h-full gap-5 w-1/2 px-14 3xl:px-32 py-32 ">
             <h2 className="font-integral-bold text-6xl">
               FIND CLOTHES THAT MATCHES YOUR STYLE
             </h2>
@@ -99,7 +106,7 @@ export default function Home() {
                 </p>
               </div>
               <span>
-                <img src={line} alt="partners_icon" />
+                <img src={line} alt="line_icon" />
               </span>
               <div className="flex flex-col gap-1">
                 <h3 className="font-satoshi-bold text-4xl">30,000+</h3>
@@ -109,14 +116,16 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-1/2 bg-amber-700 ">
-            <div>
-              <img
-                src={header_img}
-                className="w-full h-[700px] object-fill "
-                alt="img"
-              />
+          <div className="w-1/2  min-h-full relative ">
+            <div className="max-h-[700px] h-[700px]">
+              <img src={header_img} className="w-full h-full" />
             </div>
+            <span className="absolute top-[35%]">
+              <img src={smallStar} alt="partnestar_iconstrs_icon" />
+            </span>
+            <span className="absolute top-[15%] right-[10%]">
+              <img src={bigStar} alt="partnestar_iconstrs_icon" />
+            </span>
           </div>
         </div>
         <div className="flex justify-between items-center bg-black py-14 px-32">
@@ -137,17 +146,27 @@ export default function Home() {
           </span>
         </div>
       </div>
-      <div className="flex flex-col gap-14 px-32">
+      <div className="flex flex-col gap-14 py-14 px-14 3xl:px-32">
         {/* Second area */}
         <div>
           <CenteredText text="New Arrivals" />
           <div className="flex justify-between mt-10">
             {newArrivals.map((item, index) => (
-              <div key={index}>
+              <div key={index} className="flex flex-col gap-5">
                 <img src={item.image} />
-                <div>
-                  <p> {item.title} </p>
-                  <p> {item.price} </p>
+                <div className="flex flex-col gap-3">
+                  <p className="font-satoshi-bold text-lg"> {item.title.toLowerCase().split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")} </p>
+                  <div>
+                    {item.discount > 0 ? (
+                      <div className="flex gap-5 items-center">
+                        <p className="font-satoshi-bold text-black text-xl"> ${actualPriceFn({price: item.price, discount: item.discount})} </p>
+                        <p className="font-satoshi-bold line-through text-black/40 text-xl"> ${item.price}</p>
+                        <span className="rounded-full text-[12px] py-2 px-3 text-[#FF3333] bg-[#FF3333]/10 font-medium"> - {item.discount} %</span>
+                      </div>
+                    ) : <div> <p className="font-satoshi-bold text-black text-xl"> ${item.price} </p> </div>
+                      
+                    }
+                  </div>
                 </div>
               </div>
             ))}
@@ -206,19 +225,17 @@ export default function Home() {
             </div>
           </div>
 
-
           <div className="flex gap-5 overflow-x-scroll w-full">
             {testimonial.map((item, index) => (
-              <div key={index} className="border rounded-lg !w-[500px] h-[250px] border-black/10 p-7 shrink-0">
+              <div
+                key={index}
+                className="border rounded-lg !w-[500px] h-[250px] border-black/10 p-7 shrink-0"
+              >
                 <p> {item.testifier} </p>
                 <p> "{item.testimony}" </p>
               </div>
-            ))
-
-            }
+            ))}
           </div>
-
-          
         </div>
       </div>
       <div>
