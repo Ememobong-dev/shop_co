@@ -3,11 +3,13 @@ import dropdownArrow from "../assets/svgs/dropdownArrow.svg";
 import searchIcon from "../assets/svgs/search-brown-icon.svg";
 import cartIcon from "../assets/svgs/black-cart.svg";
 import profileIcon from "../assets/svgs/black-profile.svg";
+import searchIconForMobile from "../assets/svgs/mobile-nav-search-icon.svg";
+import hamburger from "../assets/svgs/hamburger.svg";
 
 export const Navbar = () => {
   return (
-    <div className="w-full py-10 px-14 3xl:px-32  ">
-      <div className="flex justify-between items-center">
+    <div className="w-full py-5 md:py-10 px-5 md:px-14 3xl:px-32  ">
+      <div className="justify-between items-center hidden lg:flex">
         <span>
           <img src={brandLogo} alt="brand_logo" />
         </span>
@@ -39,6 +41,27 @@ export const Navbar = () => {
           />
         </div>
         <div className="flex gap-4">
+          <span>
+            <img src={cartIcon} alt="brand_logo" />
+          </span>
+          <span>
+            <img src={profileIcon} alt="brand_logo" />
+          </span>
+        </div>
+      </div>
+      <div className="flex justify-between items-center lg:hidden">
+        <div className="flex gap-3 items-center">
+          <span>
+            <img src={hamburger} className="" alt="brand_logo" />
+          </span>
+          <span>
+            <img src={brandLogo} className="w-1/2" alt="brand_logo" />
+          </span>
+        </div>
+        <div className="flex gap-4 items-center">
+          <span>
+            <img src={searchIconForMobile} alt="brand_logo" />
+          </span>
           <span>
             <img src={cartIcon} alt="brand_logo" />
           </span>

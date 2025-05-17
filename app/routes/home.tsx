@@ -18,6 +18,8 @@ import newArrivals from "../assets/data/newArrival.json";
 import topSelling from "../assets/data/topSelling.json";
 import smallStar from "../assets/svgs/small-star.svg";
 import bigStar from "../assets/svgs/big-star.svg";
+import fullStar from "../assets/svgs/golden-full-star.svg";
+import halfStar from "../assets/svgs/golden-half-star.svg";
 import { Footer } from "~/components/Footer/Footer";
 
 export function meta({}: Route.MetaArgs) {
@@ -66,30 +68,51 @@ const testimonial = [
   },
 ];
 
-const actualPriceFn = ({price, discount}: {price: number; discount: number}) => {
-  let discountPrice = (discount/100) * price;
+const actualPriceFn = ({
+  price,
+  discount,
+}: {
+  price: number;
+  discount: number;
+}) => {
+  let discountPrice = (discount / 100) * price;
   return price - discountPrice;
-}
+};
+
+const ratingFn = (rating: number) => {
+  let wholeValue;
+  let halfValue: 0 | 1;
+  if (rating % 2 !== 0) {
+    // it means it has a remainder
+    wholeValue = Math.floor(rating);
+    halfValue = 1;
+  } else {
+    wholeValue = rating;
+    halfValue = 0;
+  }
+
+  return { wholeValue, halfValue };
+};
 
 export default function Home() {
   return (
     <div>
       {/* hero area */}
       <div className="h-full">
-        <div className="bg-white-100 w-full flex gap-8 items-stretch">
-          <div className="flex flex-col min-h-full gap-5 w-1/2 px-14 3xl:px-32 py-32 ">
-            <h2 className="font-integral-bold text-6xl">
+        <div className="bg-white-100 w-full flex flex-col lg:flex-row gap-8 items-stretch">
+          <div className="flex flex-col min-h-full gap-5 lg:w-1/2 px-5 md:px-14 3xl:px-32 py-32 ">
+            <h2 className="font-integral-bold text-4xl lg:text-6xl">
               FIND CLOTHES THAT MATCHES YOUR STYLE
             </h2>
-            <p className="text-base font-satoshi-reg text-black/60">
+            <p className=" text-sm lg:text-base font-satoshi-reg text-black/60">
               Browse through our diverse range of meticulously crafted garments,
               designed to bring out your individuality and cater to your sense
               of style.
             </p>
-            <div>
-              <Button variant="filled" text="Shop Now" />
+            <div className="w-full">
+              <Button variant="filled" fullWidth  text="Shop Now" />
             </div>
-            <div className="flex justify-between">
+            <div className="flex flex-wrap justify-center md:justify-between">
               <div className="flex flex-col gap-1">
                 <h3 className="font-satoshi-bold text-4xl"> 200+</h3>
                 <p className="text-black/60 tetx-base font-satoshi-reg">
@@ -116,8 +139,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="w-1/2  min-h-full relative ">
-            <div className="max-h-[700px] h-[700px]">
+          <div className="md:w-1/2  min-h-full relative ">
+            <div className="md:max-h-[700px] md:h-[700px]">
               <img src={header_img} className="w-full h-full" />
             </div>
             <span className="absolute top-[35%]">
@@ -128,7 +151,7 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div className="flex justify-between items-center bg-black py-14 px-32">
+        <div className="flex flex-wrap gap-5 justify-center md:justify-between items-center bg-black py-14 px-5 lg:px-32">
           <span>
             <img src={versace} alt="partners_icon" />
           </span>
@@ -146,26 +169,77 @@ export default function Home() {
           </span>
         </div>
       </div>
-      <div className="flex flex-col gap-14 py-14 px-14 3xl:px-32">
+      <div className="flex flex-col gap-14 py-14 px-5 md:px-14 3xl:px-32">
         {/* Second area */}
         <div>
           <CenteredText text="New Arrivals" />
-          <div className="flex justify-between mt-10">
+          <div className="flex flex-wrap gap-5 justify-center items-center lg:justify-between mt-10">
             {newArrivals.map((item, index) => (
-              <div key={index} className="flex flex-col gap-5">
+              <div key={index} className="flex flex-col justify-center items-center gap-5">
                 <img src={item.image} />
                 <div className="flex flex-col gap-3">
-                  <p className="font-satoshi-bold text-lg"> {item.title.toLowerCase().split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")} </p>
+                  <p className="font-satoshi-bold text-lg">
+                    {" "}
+                    {item.title
+                      .toLowerCase()
+                      .split(" ")
+                      .map(
+                        (word) => word.charAt(0).toUpperCase() + word.slice(1)
+                      )
+                      .join(" ")}{" "}
+                  </p>
+                  {/* RATINGS */}
+                  <div>
+                    <div className="flex gap-2">
+                      {(() => {
+                        const { wholeValue, halfValue } = ratingFn(item.rating);
+                        return (
+                          <>
+                            {[...Array(wholeValue)].map((_, index) => (
+                              <span key={index}>
+                                <img src={fullStar} alt="" />
+                              </span>
+                            ))}
+                            {halfValue ? (
+                              <span>
+                                <img src={halfStar} alt="" />
+                              </span>
+                            ) : null}
+                          </>
+                        );
+                      })()}
+                    </div>
+                  </div>
+                  {/* PRICES */}
                   <div>
                     {item.discount > 0 ? (
                       <div className="flex gap-5 items-center">
-                        <p className="font-satoshi-bold text-black text-xl"> ${actualPriceFn({price: item.price, discount: item.discount})} </p>
-                        <p className="font-satoshi-bold line-through text-black/40 text-xl"> ${item.price}</p>
-                        <span className="rounded-full text-[12px] py-2 px-3 text-[#FF3333] bg-[#FF3333]/10 font-medium"> - {item.discount} %</span>
+                        <p className="</span>font-satoshi-bold text-black text-xl">
+                          {" "}
+                          $
+                          {actualPriceFn({
+                            price: item.price,
+                            discount: item.discount,
+                          })}{" "}
+                        </p>
+                        <p className="font-satoshi-bold line-through text-black/40 text-xl">
+                          {" "}
+                          ${item.price}
+                        </p>
+                        <span className="rounded-full text-[12px] py-2 px-3 text-[#FF3333] bg-[#FF3333]/10 font-medium">
+                          {" "}
+                          - {item.discount} %
+                        </span>
                       </div>
-                    ) : <div> <p className="font-satoshi-bold text-black text-xl"> ${item.price} </p> </div>
-                      
-                    }
+                    ) : (
+                      <div>
+                        {" "}
+                        <p className="font-satoshi-bold text-black text-xl">
+                          {" "}
+                          ${item.price}{" "}
+                        </p>{" "}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -179,7 +253,7 @@ export default function Home() {
         {/* third area */}
         <div>
           <CenteredText text="New Arrivals" />
-          <div className="flex justify-between mt-10">
+          <div className="flex flex-wrap gap-5 lg:justify-between justify-center items-center  mt-10">
             {topSelling.map((item, index) => (
               <div key={index}>
                 <img src={item.image} />
@@ -195,15 +269,15 @@ export default function Home() {
           </div>
         </div>
         {/* fourth */}
-        <div className="bg-white-50 rounded-[40px] p-20">
-          <h3 className="text-5xl mb-16 font-integral-bold text-center">
+        <div className="bg-white-50 rounded-[40px] p-5 lg:p-20">
+          <h3 className=" text-3xl lg:text-5xl mb-16 font-integral-bold text-center">
             BROWSE BY DRESS STYLE
           </h3>
-          <div className="flex justify-center gap-6 items-stretch w-full">
+          <div className="flex flex-col lg:flex-row justify-center gap-6 items-stretch w-full">
             <img src={grid1} className="" alt="grid_img" />
             <img src={grid2} alt="grid_img" />
           </div>
-          <div className="flex mt-6  gap-6 justify-center items-stretch w-full">
+          <div className="flex flex-col lg:flex-row  mt-6  gap-6 justify-center items-stretch w-full">
             <img src={grid3} className="" alt="grid_img" />
             <img src={grid4} className="" alt="grid_img" />
           </div>
@@ -212,7 +286,7 @@ export default function Home() {
         {/* fifth -- testimonials */}
         <div>
           <div className="flex items-center justify-between">
-            <h3 className="text-5xl mb-16 font-integral-bold ">
+            <h3 className="text-3xl lg:text-5xl mb-16 font-integral-bold ">
               OUR HAPPY CUSTOMERS
             </h3>
             <div className="flex gap-2">

@@ -1,10 +1,10 @@
 import brandLogo from "../../assets/svgs/brand-logo.svg";
 
-export const Footer = () => {
+export const    Footer = () => {
   return (
     <div>
-      <div className="bg-white-50 py-14 px-32">
-        <div className="flex justify-between items-start">
+      <div className="bg-white-50 py-14 px-5 lg:px-32">
+        <div className="flex flex-wrap gap-5 justify-between items-start">
           <div className="w-[300px]">
             <span>
               <img src={brandLogo} alt="brand_logo" />
