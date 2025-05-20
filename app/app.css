@@ -46,13 +46,15 @@
   --font-satoshi-med: "Satoshi-medium";
   --font-integral-reg: "integral-reg";
   --font-integral-bold: "integral-bold";
-
   /* colors */
   --color-white-50: #F0F0F0;
   --color-white-100: #F2F0F1;
-
   /* breakpoint */
   --breakpoint-3xl: 1500px
+}
+
+.scrollbar{
+  scrollbar-width: none !important;
 }
 
 
