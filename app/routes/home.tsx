@@ -111,7 +111,7 @@ export default function Home() {
               designed to bring out your individuality and cater to your sense
               of style.
             </p>
-            <div className="w-full">
+            <div className="w-full lg:w-[25%]">
               <Button variant="filled" fullWidth text="Shop Now" />
             </div>
             <div className="flex flex-wrap justify-center md:justify-between">
@@ -175,7 +175,7 @@ export default function Home() {
         {/* Second area */}
         <div>
           <CenteredText text="New Arrivals" />
-          <div className="flex flex-col lg:flex-row gap-5 justify-center items-center lg:justify-between mt-10 lg:mt-16">
+          <div className="flex gap-5 mt-10 relative w-full overflow-x-scroll lg:overflow-x-auto lg:items-center lg:justify-between lg:mt-16">
             {newArrivals.map((item, index) => (
               <ProductCard
                 key={index}
@@ -187,8 +187,8 @@ export default function Home() {
               />
             ))}
           </div>
-          <div className="flex justify-center mt-10">
-            <div className="w-52 ">
+           <div className="flex justify-center mt-10">
+            <div className="w-full lg:w-52 ">
               <Button fullWidth variant="bordered" text="View All" />
             </div>
           </div>
@@ -197,7 +197,7 @@ export default function Home() {
         {/* third area */}
         <div>
           <CenteredText text="Top Selling" />
-          <div className="flex flex-col lg:flex-row gap-5 lg:justify-between justify-center items-center mt-10 lg:mt-16">
+          <div className="flex gap-5 mt-10 relative w-full overflow-x-scroll lg:overflow-x-auto lg:items-center lg:justify-between lg:mt-16">
             {topSelling.map((item, index) => (
               <ProductCard
                 key={index}
@@ -210,7 +210,7 @@ export default function Home() {
             ))}
           </div>
           <div className="flex justify-center mt-10">
-            <div className="w-52 ">
+            <div className="w-full lg:w-52 ">
               <Button fullWidth variant="bordered" text="View All" />
             </div>
           </div>

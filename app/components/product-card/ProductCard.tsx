@@ -33,8 +33,8 @@ export const ProductCard = ({ imgSrc, title, rating, discount, price }: ProductC
   };
 
   return (
-    <div className="w-full flex flex-col justify-center  gap-5">
-      <img className="w-full" src={imgSrc} />
+    <div className=" w-[70%] lg:w-full flex flex-col justify-center lg:gap-5 shrink-0 lg:shrink ">
+      <img className="w-full " src={imgSrc} />
       <div className="flex flex-col gap-3">
         <p className="font-satoshi-bold text-lg">
           {" "}
