@@ -66,32 +66,22 @@ const testimonial = [
     testifier: "James M",
     testimony:
       "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
-    ratings: 5,
+    ratings: 3,
   },
 ];
-
-const actualPriceFn = ({
-  price,
-  discount,
-}: {
-  price: number;
-  discount: number;
-}) => {
-  let discountPrice = (discount / 100) * price;
-  return price - discountPrice;
-};
 
 const ratingFn = (rating: number) => {
   let wholeValue;
   let halfValue: 0 | 1;
-  if (rating % 2 !== 0) {
-    // it means it has a remainder
+
+  if (rating % 1 !== 0) {
+    // it means it's not a whole number
     wholeValue = Math.floor(rating);
     halfValue = 1;
   } else {
-    wholeValue = rating;
+   wholeValue = rating;
     halfValue = 0;
-  }
+  } 
 
   return { wholeValue, halfValue };
 };
@@ -187,7 +177,7 @@ export default function Home() {
               />
             ))}
           </div>
-           <div className="flex justify-center mt-10">
+          <div className="flex justify-center mt-10">
             <div className="w-full lg:w-52 ">
               <Button fullWidth variant="bordered" text="View All" />
             </div>

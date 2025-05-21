@@ -21,7 +21,8 @@ export const ProductCard = ({ imgSrc, title, rating, discount, price }: ProductC
     let wholeValue;
     let halfValue: 0 | 1;
     if (rating % 2 !== 0) {
-      // it means it has a remainder
+        // correct check
+        // rating % 1 !== 0
       wholeValue = Math.floor(rating);
       halfValue = 1;
     } else {
