@@ -41,14 +41,14 @@ const testimonial = [
   {
     testifier: "Alex K",
     testimony:
-      "inding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
-    ratings: 5,
+      "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+    ratings: 3,
   },
   {
     testifier: "James L",
     testimony:
       "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
-    ratings: 5,
+    ratings: 3.5,
   },
   {
     testifier: "Moose J",
@@ -60,13 +60,13 @@ const testimonial = [
     testifier: "Sarah M",
     testimony:
       "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
-    ratings: 3.5,
+    ratings: 5,
   },
   {
     testifier: "James M",
     testimony:
       "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
-    ratings: 3,
+    ratings: 5,
   },
 ];
 
