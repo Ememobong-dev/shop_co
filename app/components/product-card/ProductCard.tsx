@@ -1,7 +1,6 @@
-import React from "react";
 
-import fullStar from "../assets/svgs/golden-full-star.svg";
-import halfStar from "../assets/svgs/golden-half-star.svg";
+import fullStar from "../../assets/svgs/golden-full-star.svg";
+import halfStar from "../../assets/svgs/golden-half-star.svg";
 
 
 type ProductCardType = { imgSrc: string; title: string; rating: number, discount: number; price: number; };
@@ -34,7 +33,7 @@ export const ProductCard = ({ imgSrc, title, rating, discount, price }: ProductC
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-5">
+    <div className="w-full flex flex-col justify-center  gap-5">
       <img className="w-full" src={imgSrc} />
       <div className="flex flex-col gap-3">
         <p className="font-satoshi-bold text-lg">

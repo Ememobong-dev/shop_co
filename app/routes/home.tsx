@@ -22,6 +22,7 @@ import fullStar from "../assets/svgs/golden-full-star.svg";
 import halfStar from "../assets/svgs/golden-half-star.svg";
 import { Footer } from "~/components/Footer/Footer";
 import greenMarkImg from "../assets/svgs/green-checkmark.svg";
+import { ProductCard } from "~/components/product-card/ProductCard";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -176,81 +177,14 @@ export default function Home() {
           <CenteredText text="New Arrivals" />
           <div className="flex flex-col lg:flex-row gap-5 justify-center items-center lg:justify-between mt-10 lg:mt-16">
             {newArrivals.map((item, index) => (
-              <div
+              <ProductCard
                 key={index}
-                className=" w-full flex flex-col justify-center items-center gap-5"
-              >
-                <img className="w-full" src={item.image} />
-                <div className="flex flex-col gap-3">
-                  <p className="font-satoshi-bold text-lg">
-                    {" "}
-                    {item.title
-                      .toLowerCase()
-                      .split(" ")
-                      .map(
-                        (word) => word.charAt(0).toUpperCase() + word.slice(1)
-                      )
-                      .join(" ")}{" "}
-                  </p>
-                  {/* RATINGS */}
-                  <div className="flex gap-2 items-center">
-                    <div className="flex gap-2">
-                      {(() => {
-                        const { wholeValue, halfValue } = ratingFn(item.rating);
-                        return (
-                          <>
-                            {[...Array(wholeValue)].map((_, index) => (
-                              <span key={index}>
-                                <img src={fullStar} alt="" />
-                              </span>
-                            ))}
-                            {halfValue ? (
-                              <span>
-                                <img src={halfStar} alt="" />
-                              </span>
-                            ) : null}
-                          </>
-                        );
-                      })()}
-                      <p className="text-black text-sm">
-                        {item.rating.toFixed(1)}
-                        <span className="text-black/40">/5</span>{" "}
-                      </p>
-                    </div>
-                  </div>
-                  {/* PRICES */}
-                  <div>
-                    {item.discount > 0 ? (
-                      <div className="flex gap-5 items-center">
-                        <p className="</span>font-satoshi-bold text-black text-xl">
-                          {" "}
-                          $
-                          {actualPriceFn({
-                            price: item.price,
-                            discount: item.discount,
-                          })}{" "}
-                        </p>
-                        <p className="font-satoshi-bold line-through text-black/40 text-xl">
-                          {" "}
-                          ${item.price}
-                        </p>
-                        <span className="rounded-full text-[12px] py-2 px-3 text-[#FF3333] bg-[#FF3333]/10 font-medium">
-                          {" "}
-                          - {item.discount} %
-                        </span>
-                      </div>
-                    ) : (
-                      <div>
-                        {" "}
-                        <p className="font-satoshi-bold text-black text-xl">
-                          {" "}
-                          ${item.price}{" "}
-                        </p>{" "}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
+                imgSrc={item.image}
+                title={item.title}
+                rating={item.rating}
+                discount={item.discount}
+                price={item.price}
+              />
             ))}
           </div>
           <div className="flex justify-center mt-10">
@@ -265,81 +199,14 @@ export default function Home() {
           <CenteredText text="Top Selling" />
           <div className="flex flex-col lg:flex-row gap-5 lg:justify-between justify-center items-center mt-10 lg:mt-16">
             {topSelling.map((item, index) => (
-              <div
+              <ProductCard
                 key={index}
-                className="w-full flex flex-col justify-center items-center gap-5"
-              >
-                <img className="w-full" src={item.image} />
-                <div className="flex flex-col gap-3">
-                  <p className="font-satoshi-bold text-lg">
-                    {" "}
-                    {item.title
-                      .toLowerCase()
-                      .split(" ")
-                      .map(
-                        (word) => word.charAt(0).toUpperCase() + word.slice(1)
-                      )
-                      .join(" ")}{" "}
-                  </p>
-                  {/* RATINGS */}
-                  <div className="flex gap-2 items-center">
-                    <div className="flex gap-2">
-                      {(() => {
-                        const { wholeValue, halfValue } = ratingFn(item.rating);
-                        return (
-                          <>
-                            {[...Array(wholeValue)].map((_, index) => (
-                              <span key={index}>
-                                <img src={fullStar} alt="" />
-                              </span>
-                            ))}
-                            {halfValue ? (
-                              <span>
-                                <img src={halfStar} alt="" />
-                              </span>
-                            ) : null}
-                          </>
-                        );
-                      })()}
-                      <p className="text-black text-sm">
-                        {item.rating.toFixed(1)}
-                        <span className="text-black/40">/5</span>{" "}
-                      </p>
-                    </div>
-                  </div>
-                  {/* PRICES */}
-                  <div>
-                    {item.discount > 0 ? (
-                      <div className="flex gap-5 items-center">
-                        <p className="</span>font-satoshi-bold text-black text-xl">
-                          {" "}
-                          $
-                          {actualPriceFn({
-                            price: item.price,
-                            discount: item.discount,
-                          })}{" "}
-                        </p>
-                        <p className="font-satoshi-bold line-through text-black/40 text-xl">
-                          {" "}
-                          ${item.price}
-                        </p>
-                        <span className="rounded-full text-[12px] py-2 px-3 text-[#FF3333] bg-[#FF3333]/10 font-medium">
-                          {" "}
-                          - {item.discount} %
-                        </span>
-                      </div>
-                    ) : (
-                      <div>
-                        {" "}
-                        <p className="font-satoshi-bold text-black text-xl">
-                          {" "}
-                          ${item.price}{" "}
-                        </p>{" "}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
+                imgSrc={item.image}
+                title={item.title}
+                rating={item.rating}
+                discount={item.discount}
+                price={item.price}
+              />
             ))}
           </div>
           <div className="flex justify-center mt-10">
