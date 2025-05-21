@@ -174,13 +174,13 @@ export default function Home() {
         {/* Second area */}
         <div>
           <CenteredText text="New Arrivals" />
-          <div className="flex flex-wrap gap-5 justify-center items-center lg:justify-between mt-10">
+          <div className="flex flex-col lg:flex-row gap-5 justify-center items-center lg:justify-between mt-10 lg:mt-16">
             {newArrivals.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col justify-center items-center gap-5"
+                className=" w-full flex flex-col justify-center items-center gap-5"
               >
-                <img src={item.image} />
+                <img className="w-full" src={item.image} />
                 <div className="flex flex-col gap-3">
                   <p className="font-satoshi-bold text-lg">
                     {" "}
@@ -263,13 +263,13 @@ export default function Home() {
         {/* third area */}
         <div>
           <CenteredText text="Top Selling" />
-          <div className="flex flex-wrap gap-5 lg:justify-between justify-center items-center  mt-10">
+          <div className="flex flex-col lg:flex-row gap-5 lg:justify-between justify-center items-center mt-10 lg:mt-16">
             {topSelling.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col justify-center items-center gap-5"
+                className="w-full flex flex-col justify-center items-center gap-5"
               >
-                <img src={item.image} />
+                <img className="w-full" src={item.image} />
                 <div className="flex flex-col gap-3">
                   <p className="font-satoshi-bold text-lg">
                     {" "}

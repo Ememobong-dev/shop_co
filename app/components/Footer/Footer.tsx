@@ -8,7 +8,7 @@ import masterChef from "../../assets/svgs/masterChef.svg";
 import payPal from "../../assets/svgs//paypal.svg";
 import applePay from "../../assets/svgs/applePay.svg";
 import googlePay from "../../assets/svgs/G-pay.svg";
-import { SubscribeArea } from "../subscribeArea/subscribeArea";
+import { SubscribeArea } from "../subscribeArea/SubscribeArea";
 
 export const Footer = () => {
   return (
@@ -16,7 +16,7 @@ export const Footer = () => {
       <div className="bg-white-50 py-14 px-5 md:px-14 3xl:px-32 relative ">
 
          <div className="flex justify-center w-full mb-20 ">
-          <SubscribeArea />
+         <SubscribeArea />
         </div>
         <div className="flex flex-wrap gap-5  justify-between items-start">
           <div className="w-[300px] flex flex-col gap-5">
