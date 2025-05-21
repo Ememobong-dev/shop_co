@@ -407,7 +407,11 @@ export default function Home() {
                 <div className="flex gap-3 items-center">
                   <p className="font-bold text-black"> {item.testifier} </p>
                   <span>
-                    <img src={greenMarkImg} className="w-5 h-5" alt="green_checkMark" />
+                    <img
+                      src={greenMarkImg}
+                      className="w-5 h-5"
+                      alt="green_checkMark"
+                    />
                   </span>
                 </div>
 
@@ -420,9 +424,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

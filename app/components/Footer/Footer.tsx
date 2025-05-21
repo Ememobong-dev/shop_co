@@ -3,16 +3,22 @@ import twitter from "../../assets/svgs/twitter.svg";
 import instagram from "../../assets/svgs/instagram.svg";
 import facebook from "../../assets/svgs/facbook.svg";
 import github from "../../assets/svgs/github.svg";
+import visa from "../../assets/svgs/visa.svg";
+import masterChef from "../../assets/svgs/masterChef.svg";
+import payPal from "../../assets/svgs//paypal.svg";
+import applePay from "../../assets/svgs/applePay.svg";
+import googlePay from "../../assets/svgs/G-pay.svg";
 import { SubscribeArea } from "../subscribeArea/subscribeArea";
 
 export const Footer = () => {
   return (
-    <div>
-      <div className="bg-white-50 py-14 px-5 lg:px-32 relative ">
-         <div className=" absolute -top-20">
+    <>
+      <div className="bg-white-50 py-14 px-5 md:px-14 3xl:px-32 relative ">
+
+         <div className="flex justify-center w-full mb-20 ">
           <SubscribeArea />
         </div>
-        <div className="flex flex-wrap gap-5 justify-between items-start pt-20">
+        <div className="flex flex-wrap gap-5  justify-between items-start">
           <div className="w-[300px] flex flex-col gap-5">
             <span>
               <img src={brandLogo} alt="brand_logo" />
@@ -74,18 +80,30 @@ export const Footer = () => {
           </div>
         </div>
         <hr className="border-b my-5 border-black/10" />
-        <div className="flex justify-between items-center">
-          <p className="text-black/60">
+        <div className="flex flex-col md:flex-row justify-center md:justify-between items-center">
+          <p className="text-black/60 text-sm">
             Shop.co © 2000-2023, All Rights Reserved
           </p>
-          <div>
-            <span>
-              <img  />
-            </span>
+          <div className="flex gap-2">
+             <span>
+                <img className="w-full" src={visa} alt="twitter" />
+              </span>
+              <span>
+                <img className="w-full" src={masterChef} alt="twitter" />
+              </span>
+              <span>
+                <img className="w-full" src={payPal} alt="twitter" />
+              </span>
+              <span>
+                <img className="w-full" src={applePay} alt="twitter" />
+              </span>
+              <span>
+                <img className="w-full" src={googlePay} alt="twitter" />
+              </span>
           </div>
         </div>
        
       </div>
-    </div>
+    </>
   );
 };
