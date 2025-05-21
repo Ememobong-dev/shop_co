@@ -13,12 +13,12 @@ import { SubscribeArea } from "../subscribeArea/SubscribeArea";
 export const Footer = () => {
   return (
     <>
-      <div className="bg-white-50 py-14 px-5 md:px-14 3xl:px-32 relative ">
+      <div className="bg-white-50 py-14 px-5 md:px-14 3xl:px-32 relative -z-[1]">
 
-         <div className="flex justify-center w-full mb-20 ">
+         {/* <div className="flex justify-center w-full mb-20 ">
          <SubscribeArea />
-        </div>
-        <div className="flex flex-wrap gap-5  justify-between items-start">
+        </div> */}
+        <div className="flex flex-wrap gap-5 mt-28 justify-between items-start">
           <div className="w-[300px] flex flex-col gap-5">
             <span>
               <img src={brandLogo} alt="brand_logo" />

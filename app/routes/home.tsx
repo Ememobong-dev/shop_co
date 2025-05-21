@@ -23,6 +23,7 @@ import halfStar from "../assets/svgs/golden-half-star.svg";
 import { Footer } from "~/components/Footer/Footer";
 import greenMarkImg from "../assets/svgs/green-checkmark.svg";
 import { ProductCard } from "~/components/product-card/ProductCard";
+import { SubscribeArea } from "~/components/subscribeArea/SubscribeArea";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -161,7 +162,7 @@ export default function Home() {
           </span>
         </div>
       </div>
-      <div className="flex flex-col gap-14 py-14 pb-48 px-5 md:px-14 3xl:px-32">
+      <div className="relative flex flex-col gap-14 py-14 pb-48 px-5 md:px-14 3xl:px-32">
         {/* Second area */}
         <div>
           <CenteredText text="New Arrivals" />
@@ -206,15 +207,15 @@ export default function Home() {
           </div>
         </div>
         {/* fourth */}
-        <div className="bg-white-50 rounded-[40px] p-5 lg:p-20">
-          <h3 className=" text-3xl lg:text-5xl mb-16 font-integral-bold text-center">
+        <div className="bg-white-50 rounded-[40px] p-5 3xl:p-20">
+          <h3 className=" text-3xl 3xl:text-5xl mb-16 font-integral-bold text-center">
             BROWSE BY DRESS STYLE
           </h3>
-          <div className="flex flex-col lg:flex-row justify-center gap-6 items-stretch w-full">
+          <div className="flex flex-col 3xl:flex-row justify-center gap-6 items-stretch w-full">
             <img src={grid1} className="" alt="grid_img" />
             <img src={grid2} alt="grid_img" />
           </div>
-          <div className="flex flex-col lg:flex-row  mt-6  gap-6 justify-center items-stretch w-full">
+          <div className="flex flex-col 3xl:flex-row  mt-6  gap-6 justify-center items-stretch w-full">
             <img src={grid3} className="" alt="grid_img" />
             <img src={grid4} className="" alt="grid_img" />
           </div>
@@ -280,7 +281,11 @@ export default function Home() {
             ))}
           </div>
         </div>
+        <div className="absolute -bottom-28 3xl:-bottom-20 left-5 right-5  ">
+          <SubscribeArea />
+        </div>
       </div>
+      
       <Footer />
     </div>
   );

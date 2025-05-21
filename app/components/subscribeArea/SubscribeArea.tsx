@@ -4,7 +4,7 @@ import { Button } from "../Button";
 
 export const SubscribeArea = () => {
   return (
-    <div className="absolute -top-20  bg-black rounded-3xl ">
+    <div className="bg-black rounded-3xl z-50 ">
       <div className=" py-5 md:py-9 w-full px-5 md:px-16  flex flex-col md:flex-row justify-center md:justify-between gap-y-4">
         <p className="text-3xl lg:text-5xl text-white font-integral-bold md:w-1/2">
           STAY UPTO DATE ABOUT OUR LATEST OFFERS
