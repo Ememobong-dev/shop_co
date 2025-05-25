@@ -22,7 +22,7 @@ export const Testimonial = ({
 }: TestimonialProps) => {
   return (
     <div
-      className={`flex flex-col gap-y-4  border rounded-lg  h-[250px] border-black/10 p-7  ${
+      className={`flex flex-col gap-y-4  border rounded-lg  3xl:h-[250px] border-black/10 p-7  ${
         variant === "customer" ? "!w-[500px] shrink-0" : "w-full"
       } `}
     >

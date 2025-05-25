@@ -10,7 +10,7 @@ export const SubscribeArea = () => {
           STAY UPTO DATE ABOUT OUR LATEST OFFERS
         </p>
         <div className="flex flex-col gap-3">
-          <div className="flex gap-3 py-2 px-3 rounded-full bg-white">
+          <div className="flex gap-3 py-3 px-3 rounded-full bg-white">
             <span>
               <img src={mail_icon} alt="mail_icon" />
             </span>
@@ -23,7 +23,7 @@ export const SubscribeArea = () => {
             />
           </div>
           <div>
-            <button className="py-2 px-3 text-sm w-full rounded-full bg-white">
+            <button className="py-3 px-3 text-sm w-full rounded-full bg-white">
               Subscribe to Newsletter
             </button>
           </div>

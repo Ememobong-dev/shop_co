@@ -18,22 +18,6 @@ export const ProductCard = ({ imgSrc, title, rating, discount, price }: ProductC
     return price - discountPrice;
   };
 
-  // const ratingFn = (rating: number) => {
-  //   let wholeValue;
-  //   let halfValue: 0 | 1;
-  //   if (rating % 2 !== 0) {
-  //       // correct check
-  //       // rating % 1 !== 0
-  //     wholeValue = Math.floor(rating);
-  //     halfValue = 1;
-  //   } else {
-  //     wholeValue = rating;
-  //     halfValue = 0;
-  //   }
-
-  //   return { wholeValue, halfValue };
-  // };
-
   return (
     <div className=" w-[70%] lg:w-full flex flex-col justify-center lg:gap-5 shrink-0 lg:shrink ">
       <img className="w-full " src={imgSrc} />
@@ -76,7 +60,7 @@ export const ProductCard = ({ imgSrc, title, rating, discount, price }: ProductC
         <div>
           {discount > 0 ? (
             <div className="flex gap-5 items-center">
-              <p className="</span>font-satoshi-bold text-black text-xl">
+              <p className="font-satoshi-bold text-black text-xl">
                 {" "}
                 $
                 {actualPriceFn({
@@ -90,7 +74,7 @@ export const ProductCard = ({ imgSrc, title, rating, discount, price }: ProductC
               </p>
               <span className="rounded-full text-[12px] py-2 px-3 text-[#FF3333] bg-[#FF3333]/10 font-medium">
                 {" "}
-                - {discount} %
+                - {discount}%
               </span>
             </div>
           ) : (

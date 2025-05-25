@@ -12,6 +12,7 @@ import "./app.css";
 import { TopmostHeader } from "./components/TopmostHeader";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer/Footer";
+import { SubscribeArea } from "./components/subscribeArea/SubscribeArea";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -24,7 +25,6 @@ export const links: Route.LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
-  
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -39,7 +39,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         <TopmostHeader />
         <Navbar />
-        {children}
+        <div className="relative">
+          {children}
+          <div className="absolute -bottom-28 3xl:-bottom-20 left-5 right-5 md:left-14  md:right-14 3xl:left-32  3xl:right-32  ">
+            <SubscribeArea />
+          </div>
+        </div>
         <Footer />
         <ScrollRestoration />
         <Scripts />

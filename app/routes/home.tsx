@@ -20,7 +20,6 @@ import smallStar from "../assets/svgs/small-star.svg";
 import bigStar from "../assets/svgs/big-star.svg";
 import fullStar from "../assets/svgs/golden-full-star.svg";
 import halfStar from "../assets/svgs/golden-half-star.svg";
-import { Footer } from "~/components/Footer/Footer";
 import greenMarkImg from "../assets/svgs/green-checkmark.svg";
 import { ProductCard } from "~/components/product-card/ProductCard";
 import { SubscribeArea } from "~/components/subscribeArea/SubscribeArea";
@@ -285,12 +284,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="absolute -bottom-28 3xl:-bottom-20 left-5 right-5  ">
-          <SubscribeArea />
-        </div>
       </div>
-
-      <Footer />
     </div>
   );
 }
