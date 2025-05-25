@@ -135,7 +135,7 @@ export default function Component({ params }: Route.ComponentProps) {
                   </span>
                 </div>
                 {/*  */}
-                <p>
+                <p className="text-black/60 text-base">
                   This graphic t-shirt which is perfect for any occasion.
                   Crafted from a soft and breathable fabric, it offers superior
                   comfort and style.
@@ -143,16 +143,16 @@ export default function Component({ params }: Route.ComponentProps) {
               </div>
               {/* second segment */}
               <div className="w-full flex flex-col gap-4 py-2">
-                <p>Select Colors</p>
+                <p className="text-black/60 text-base">Select Colors</p>
                 <div className="flex gap-3">
                   {[...Array(3)].map((_, idx) => (
-                    <div className="w-6 h-6 rounded-full border bg-amber-300"></div>
+                    <div className={`w-6 h-6 rounded-full border bg-amber-300`}></div>
                   ))}
                 </div>
               </div>
               {/* third segment */}
               <div className="w-full flex flex-col gap-4 py-2">
-                <p>Choose Size</p>
+                <p className="text-black/60 text-base">Choose Size</p>
                 <div className="flex justify-between lg:justify-normal gap-3">
                   {["Small", "Medium", "Large", "X-Large"].map((size, idx) => (
                     <div
@@ -166,7 +166,7 @@ export default function Component({ params }: Route.ComponentProps) {
               </div>
               {/* fourth segment */}
               <div className="w-full flex flex-col gap-4 py-2">
-                <p>Choose Size</p>
+                <p className="text-black/60 text-base">Choose Size</p>
                 <div className="flex gap-8 justify-between">
                   <div className="bg-white-50 text-black/60 rounded-full  flex justify-between items-center w-1/2 py-3 px-5 ">
                     <span>
