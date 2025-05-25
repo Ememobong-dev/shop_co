@@ -17,6 +17,9 @@ import { Testimonial } from "~/components/Testimonial";
 import { CenteredText } from "~/components/CenteredHeaderText";
 import similarToTaste from "../../assets/data/similarToTaste.json";
 import { ProductCard } from "~/components/product-card/ProductCard";
+import mainImg1 from "../../assets/images/singleProduct/image1.png"
+import mainImg2 from "../../assets/images/singleProduct/image2.png"
+import mainImg3 from "../../assets/images/singleProduct/image3.png"
 
 export async function loader({ params }: Route.LoaderArgs) {
   const { productId } = params;
@@ -85,6 +88,7 @@ export default function Component({ params }: Route.ComponentProps) {
   const [showMore, setShowMore] = useState(4)
 
   const productThumbnails = [thumbnail1, thumbnail1, thumbnail2];
+  const mainProductImages = [mainImg1, mainImg2, mainImg3];
 
 const handleLoadMore = () => {
   setShowMore(testimonial.length);
@@ -98,29 +102,29 @@ const handleLoadMore = () => {
       <div className="relative flex flex-col gap-14 py-14 pb-48 px-5 3xl:px-0 w-full max-w-[1400px]">
         {/* HEADEER */}
         <div>
-          <div className="flex flex-col lg:flex-row gap-3 ">
-            <div className="flex flex-col-reverse lg:flex-row item-start gap-3 lg:w-1/2">
-              <div className="flex justify-between lg:justify-normal lg:flex-col gap-3">
+          <div className="flex flex-col lg:flex-row gap-20 ">
+            <div className="flex flex-col-reverse lg:flex-row item-stretch gap-4 lg:w-1/2">
+              <div className="flex justify-between lg:flex-col gap-3 h-full ">
                 {productThumbnails.map((img, index) => (
                   <div
                     key={index}
                     className={`${
                       index === selectedProductImgIndex
-                        ? "border border-black rounded-[20px]"
+                        ? "border border-black rounded-2xl h-auto"
                         : ""
                     }`}
                   >
                     <img
                       src={img}
-                      className="w-full cursor-pointer"
+                      className="w-full h-full cursor-pointer"
                       onClick={() => setSelectedProductImgIndex(index)}
                       alt="img_thumbnail"
                     />
                   </div>
                 ))}
               </div>
-              <div className="">
-                <img src={mainProductImg} className="w-full" alt="main_image" />
+              <div className="relative w-full rounded-[20px] flex justify-center items-center">
+                <img src={mainProductImages[selectedProductImgIndex]} className="w-full object-cover min-h-full max-h-[600px] rounded-[20px]" alt="main_image" />
               </div>
             </div>
             <div className="lg:w-1/2 flex flex-col divide-y-2 divide-black/10">
