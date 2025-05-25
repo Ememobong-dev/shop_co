@@ -7,7 +7,7 @@ interface ButtonProps {
 
 export const Button = ({ text, variant, fullWidth }: ButtonProps) => {
   return (
-    <button className={` cursor-pointer ${fullWidth ? "w-full": ""} ${variant === "filled" ? "text-white bg-black" : "bg-transparent border border-black/10 text-black"} py-2 px-8 rounded-full`}>
+    <button className={` font-satoshi-reg cursor-pointer ${fullWidth ? "w-full": ""} ${variant === "filled" ? "text-white bg-black" : "bg-transparent border border-black/10 text-black"} py-2 px-8 rounded-full`}>
       {text}
     </button>
   );

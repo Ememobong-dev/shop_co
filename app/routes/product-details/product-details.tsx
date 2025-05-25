@@ -13,6 +13,7 @@ import { Button } from "~/components/Button";
 import { useState } from "react";
 import dropdownArrow from "../../assets/svgs/dropdownArrow.svg";
 import { Testimonial } from "~/components/Testimonial";
+import { CenteredText } from "~/components/CenteredHeaderText";
 
 export async function loader({ params }: Route.LoaderArgs) {
   const { productId } = params;
@@ -267,12 +268,18 @@ export default function Component({ params }: Route.ComponentProps) {
                     />
                   ))}
                 </div>
+                <div className="flex items-center mt-10 justify-center">
+                  <Button variant="bordered" text="Load More Reviews" />
+                </div>
               </>
             ) : (
               <>HELLO FAQS</>
             )}
           </div>
         </div>
+
+        {/* THIRD SECTION */}
+           <CenteredText text="You Might Also Like" />
       </div>
     </div>
   );
