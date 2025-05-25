@@ -80,9 +80,9 @@ const ratingFn = (rating: number) => {
     wholeValue = Math.floor(rating);
     halfValue = 1;
   } else {
-   wholeValue = rating;
+    wholeValue = rating;
     halfValue = 0;
-  } 
+  }
 
   return { wholeValue, halfValue };
 };
@@ -105,7 +105,7 @@ export default function Home() {
             <div className="w-full lg:w-[25%]">
               <Button variant="filled" fullWidth text="Shop Now" />
             </div>
-            <div className="flex flex-wrap justify-center md:justify-between">
+            <div className="flex gap-5 md:gap-0 flex-wrap justify-center md:justify-between">
               <div className="flex flex-col gap-1">
                 <h3 className="font-satoshi-bold text-4xl"> 200+</h3>
                 <p className="text-black/60 tetx-base font-satoshi-reg">
@@ -121,7 +121,7 @@ export default function Home() {
                   High-Quality Products
                 </p>
               </div>
-              <span>
+              <span className="hidden md:flex">
                 <img src={line} alt="line_icon" />
               </span>
               <div className="flex flex-col gap-1">
@@ -167,16 +167,18 @@ export default function Home() {
         <div>
           <CenteredText text="New Arrivals" />
           <div className="flex gap-5 mt-10 relative w-full overflow-x-scroll lg:overflow-x-auto lg:items-center lg:justify-between lg:mt-16">
-            {newArrivals.map((item, index) => (
-              <ProductCard
-                key={index}
-                imgSrc={item.image}
-                title={item.title}
-                rating={item.rating}
-                discount={item.discount}
-                price={item.price}
-              />
-            ))}
+            {newArrivals.length > 0
+              ? newArrivals.map((item, index) => (
+                  <ProductCard
+                    key={index}
+                    imgSrc={item.image}
+                    title={item.title}
+                    rating={item.rating}
+                    discount={item.discount}
+                    price={item.price}
+                  />
+                ))
+              : "No new arrival products"}
           </div>
           <div className="flex justify-center mt-10">
             <div className="w-full lg:w-52 ">
@@ -189,16 +191,18 @@ export default function Home() {
         <div>
           <CenteredText text="Top Selling" />
           <div className="flex gap-5 mt-10 relative w-full overflow-x-scroll lg:overflow-x-auto lg:items-center lg:justify-between lg:mt-16">
-            {topSelling.map((item, index) => (
-              <ProductCard
-                key={index}
-                imgSrc={item.image}
-                title={item.title}
-                rating={item.rating}
-                discount={item.discount}
-                price={item.price}
-              />
-            ))}
+            {topSelling.length > 0
+              ? topSelling.map((item, index) => (
+                  <ProductCard
+                    key={index}
+                    imgSrc={item.image}
+                    title={item.title}
+                    rating={item.rating}
+                    discount={item.discount}
+                    price={item.price}
+                  />
+                ))
+              : "No top selling products"}
           </div>
           <div className="flex justify-center mt-10">
             <div className="w-full lg:w-52 ">
@@ -285,7 +289,7 @@ export default function Home() {
           <SubscribeArea />
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );
