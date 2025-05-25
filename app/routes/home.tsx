@@ -23,6 +23,7 @@ import halfStar from "../assets/svgs/golden-half-star.svg";
 import greenMarkImg from "../assets/svgs/green-checkmark.svg";
 import { ProductCard } from "~/components/product-card/ProductCard";
 import { SubscribeArea } from "~/components/subscribeArea/SubscribeArea";
+import { ratingFn } from "~/utils/RatingFn";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -70,21 +71,6 @@ const testimonial = [
   },
 ];
 
-const ratingFn = (rating: number) => {
-  let wholeValue;
-  let halfValue: 0 | 1;
-
-  if (rating % 1 !== 0) {
-    // it means it's not a whole number
-    wholeValue = Math.floor(rating);
-    halfValue = 1;
-  } else {
-    wholeValue = rating;
-    halfValue = 0;
-  }
-
-  return { wholeValue, halfValue };
-};
 
 export default function Home() {
   return (

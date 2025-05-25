@@ -8,12 +8,12 @@ import hamburger from "../assets/svgs/hamburger.svg";
 
 export const Navbar = () => {
   return (
-    <div className="w-full py-5 md:py-10 px-5 md:px-14 3xl:px-32  ">
+    <div className="w-full py-5 md:py-10 px-5 md:px-14 3xl:px-32">
       <div className="justify-between items-center hidden lg:flex">
         <span>
           <img src={brandLogo} alt="brand_logo" />
         </span>
-        <div className="flex gap-3 font-satoshi-reg text-base items-center">
+        <div className="flex gap-8 font-satoshi-reg text-base items-center">
           <div className="flex gap-1 items-center">
             <p>Shop</p>
             <span>
