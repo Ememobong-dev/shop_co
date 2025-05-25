@@ -7,6 +7,7 @@ import mainProductImg from "../../assets/svgs/product-detail-svg/mainProductImg.
 import minusIcon from "../../assets/svgs/product-detail-svg/minusIcon.svg";
 import plusIcon from "../../assets/svgs/product-detail-svg/plusIcon.svg";
 import filterIcon from "../../assets/svgs/product-detail-svg/filter-icon.svg";
+import colorCheckmark from "../../assets/svgs/product-detail-svg/color-checkmark.svg";
 import fullStar from "../../assets/svgs/golden-full-star.svg";
 import halfStar from "../../assets/svgs/golden-half-star.svg";
 import { Button } from "~/components/Button";
@@ -14,7 +15,7 @@ import { useState } from "react";
 import dropdownArrow from "../../assets/svgs/dropdownArrow.svg";
 import { Testimonial } from "~/components/Testimonial";
 import { CenteredText } from "~/components/CenteredHeaderText";
-import similarToTaste from "../../assets/data/similarToTaste.json"
+import similarToTaste from "../../assets/data/similarToTaste.json";
 import { ProductCard } from "~/components/product-card/ProductCard";
 
 export async function loader({ params }: Route.LoaderArgs) {
@@ -77,6 +78,7 @@ const testimonial = [
 export default function Component({ params }: Route.ComponentProps) {
   const { product } = useLoaderData() as Awaited<ReturnType<typeof loader>>;
   const [activeTab, setActiveTab] = useState("ratings");
+  const [productColor, setProductColor] = useState("color1");
   const productImages = [thumbnail1, thumbnail1, thumbnail2];
 
   return (
@@ -124,9 +126,7 @@ export default function Component({ params }: Route.ComponentProps) {
                 </div>
                 {/*  */}
                 <div className="flex gap-5 items-center">
-                  <p className="font-satoshi-bold text-black text-2xl ">
-                    $260
-                  </p>
+                  <p className="font-satoshi-bold text-black text-2xl ">$260</p>
                   <p className="font-satoshi-bold line-through text-black/40 text-2xl ">
                     $300
                   </p>
@@ -145,8 +145,23 @@ export default function Component({ params }: Route.ComponentProps) {
               <div className="w-full flex flex-col gap-4 py-2">
                 <p className="text-black/60 text-base">Select Colors</p>
                 <div className="flex gap-3">
-                  {[...Array(3)].map((_, idx) => (
-                    <div className={`w-6 h-6 rounded-full border bg-amber-300`}></div>
+                  {["color1", "color2", "color3"].map((color, idx) => (
+                    <div
+                      onClick={() => setProductColor(color)}
+                      className={`w-8 h-8 cursor-pointer flex justify-center items-center rounded-full ${
+                        idx === 0
+                          ? "bg-[#4F4631]"
+                          : idx === 1
+                          ? "bg-[#314F4A]"
+                          : "bg-[#31344F]"
+                      }`}
+                    >
+                      {color === productColor && (
+                        <span>
+                          <img src={colorCheckmark} alt="checkmark" />
+                        </span>
+                      )}
+                    </div>
                   ))}
                 </div>
               </div>
@@ -156,7 +171,7 @@ export default function Component({ params }: Route.ComponentProps) {
                 <div className="flex justify-between lg:justify-normal gap-3">
                   {["Small", "Medium", "Large", "X-Large"].map((size, idx) => (
                     <div
-                      className={`py-2 px-3 lg:px-8 flex justify-center items-center rounded-full bg-white-50 text-black/60 lg:text-base font-satoshi-reg text-sm `}
+                      className={`cursor-pointer py-2 px-3 lg:px-8 flex justify-center items-center rounded-full bg-white-50 text-black/60 lg:text-base font-satoshi-reg text-sm `}
                     >
                       {" "}
                       {size}{" "}
@@ -172,7 +187,7 @@ export default function Component({ params }: Route.ComponentProps) {
                     <span>
                       <img
                         src={minusIcon}
-                        className="w-4 h-4"
+                        className="w-4 h-4 cursor-pointer"
                         alt="minus_icon"
                       />
                     </span>
@@ -180,7 +195,7 @@ export default function Component({ params }: Route.ComponentProps) {
                       1
                     </span>
                     <span>
-                      <img src={plusIcon} className="w-4 h-4" alt="plus_icon" />
+                      <img src={plusIcon} className="w-4 h-4 cursor-pointer" alt="plus_icon" />
                     </span>
                   </div>
                   <Button variant="filled" fullWidth text="Add to Cart" />
@@ -200,7 +215,9 @@ export default function Component({ params }: Route.ComponentProps) {
                   : "text-black/60 "
               } w-full flex justify-center items-center`}
             >
-              <p className="py-3 text-sm lg:text-base cursor-pointer">Product Details</p>
+              <p className="py-3 text-sm lg:text-base cursor-pointer">
+                Product Details
+              </p>
             </div>
             <div
               onClick={() => setActiveTab("ratings")}
@@ -210,7 +227,9 @@ export default function Component({ params }: Route.ComponentProps) {
                   : "text-black/60"
               } w-full flex justify-center items-center `}
             >
-              <p className="py-3 text-sm lg:text-base cursor-pointer">Rating & Reviews</p>
+              <p className="py-3 text-sm lg:text-base cursor-pointer">
+                Rating & Reviews
+              </p>
             </div>
             <div
               onClick={() => setActiveTab("faqs")}
@@ -237,7 +256,9 @@ export default function Component({ params }: Route.ComponentProps) {
                     <p className="text-black font-satoshi-bold lg:text-2xl">
                       All Reviews
                     </p>
-                    <p className="text-black/60 text-[12px] lg:text-sm">(451)</p>
+                    <p className="text-black/60 text-[12px] lg:text-sm">
+                      (451)
+                    </p>
                   </div>
                   <div className="flex gap-2 items-center">
                     <div className=" flex justify-center items-center px-3 py-2 w-10 h-10  rounded-full bg-white-50">
