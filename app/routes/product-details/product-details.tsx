@@ -80,9 +80,18 @@ export default function Component({ params }: Route.ComponentProps) {
   const [activeTab, setActiveTab] = useState("ratings");
   const [productColor, setProductColor] = useState("color1");
   const [selectedSize, setSelectedSize] = useState("");
+  const [selectedProductImgIndex, setSelectedProductImgIndex] = useState(0);
+  const [quantityNeeded, setQuantityNeeded] = useState(1);
+  const [showMore, setShowMore] = useState(4)
 
+  const productThumbnails = [thumbnail1, thumbnail1, thumbnail2];
 
-  const productImages = [thumbnail1, thumbnail1, thumbnail2];
+const handleLoadMore = () => {
+  setShowMore(testimonial.length);
+  if(showMore === testimonial.length ) {
+    setShowMore(4)
+  }
+}
 
   return (
     <div className="flex justify-center">
@@ -92,9 +101,21 @@ export default function Component({ params }: Route.ComponentProps) {
           <div className="flex flex-col lg:flex-row gap-3 ">
             <div className="flex flex-col-reverse lg:flex-row item-start gap-3 lg:w-1/2">
               <div className="flex justify-between lg:justify-normal lg:flex-col gap-3">
-                {productImages.map((img, index) => (
-                  <div key={index}>
-                    <img src={img} className="w-full" alt="img_thumbnail" />
+                {productThumbnails.map((img, index) => (
+                  <div
+                    key={index}
+                    className={`${
+                      index === selectedProductImgIndex
+                        ? "border border-black rounded-[20px]"
+                        : ""
+                    }`}
+                  >
+                    <img
+                      src={img}
+                      className="w-full cursor-pointer"
+                      onClick={() => setSelectedProductImgIndex(index)}
+                      alt="img_thumbnail"
+                    />
                   </div>
                 ))}
               </div>
@@ -130,7 +151,7 @@ export default function Component({ params }: Route.ComponentProps) {
                 {/*  */}
                 <div className="flex gap-5 items-center">
                   <p className="font-satoshi-bold text-black text-2xl ">$260</p>
-                  <p className="font-satoshi-bold line-through text-black/40 text-2xl ">
+                  <p className="font-satoshi-bold line-through text-black/30 text-2xl ">
                     $300
                   </p>
                   <span className="rounded-full text-[12px] py-2 px-3 text-[#FF3333] bg-[#FF3333]/10 font-medium">
@@ -174,8 +195,12 @@ export default function Component({ params }: Route.ComponentProps) {
                 <div className="flex justify-between lg:justify-normal gap-3">
                   {["Small", "Medium", "Large", "X-Large"].map((size, idx) => (
                     <div
-                    onClick={() => setSelectedSize(size)}
-                      className={`cursor-pointer py-2 px-3 lg:px-8 flex justify-center items-center rounded-full hover:border hover:border-amber-200 lg:text-base font-satoshi-reg text-sm ${selectedSize === size ? "bg-black text-white" : "bg-white-50 text-black/60"} `}
+                      onClick={() => setSelectedSize(size)}
+                      className={`cursor-pointer py-2 px-3 lg:px-8 flex justify-center items-center rounded-full hover:border hover:border-amber-200 lg:text-base font-satoshi-reg text-sm ${
+                        selectedSize === size
+                          ? "bg-black text-white"
+                          : "bg-white-50 text-black/60"
+                      } `}
                     >
                       {" "}
                       {size}{" "}
@@ -193,13 +218,19 @@ export default function Component({ params }: Route.ComponentProps) {
                         src={minusIcon}
                         className="w-4 h-4 cursor-pointer"
                         alt="minus_icon"
+                        onClick={() => setQuantityNeeded((prev) => prev > 1 ? prev - 1 : prev)}
                       />
                     </span>
                     <span className="font-satoshi-med text-black text-base">
-                      1
+                      {quantityNeeded}
                     </span>
                     <span>
-                      <img src={plusIcon} className="w-4 h-4 cursor-pointer" alt="plus_icon" />
+                      <img
+                        src={plusIcon}
+                        onClick={() => setQuantityNeeded((prev) => prev + 1)}
+                        className="w-4 h-4 cursor-pointer"
+                        alt="plus_icon"
+                      />
                     </span>
                   </div>
                   <Button variant="filled" fullWidth text="Add to Cart" />
@@ -284,7 +315,7 @@ export default function Component({ params }: Route.ComponentProps) {
                   </div>
                 </div>
                 <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {testimonial.map((item, index) => (
+                  {testimonial.slice(0, showMore).map((item, index) => (
                     <Testimonial
                       key={index}
                       ratings={item.ratings}
@@ -296,7 +327,7 @@ export default function Component({ params }: Route.ComponentProps) {
                   ))}
                 </div>
                 <div className="flex items-center mt-10 justify-center">
-                  <Button variant="bordered" text="Load More Reviews" />
+                  <Button onClick={handleLoadMore} variant="bordered" text={showMore === 4 ? "Load More Reviews" : "Show Less"} />
                 </div>
               </>
             ) : (
