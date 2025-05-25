@@ -14,6 +14,8 @@ import { useState } from "react";
 import dropdownArrow from "../../assets/svgs/dropdownArrow.svg";
 import { Testimonial } from "~/components/Testimonial";
 import { CenteredText } from "~/components/CenteredHeaderText";
+import similarToTaste from "../../assets/data/similarToTaste.json"
+import { ProductCard } from "~/components/product-card/ProductCard";
 
 export async function loader({ params }: Route.LoaderArgs) {
   const { productId } = params;
@@ -279,7 +281,21 @@ export default function Component({ params }: Route.ComponentProps) {
         </div>
 
         {/* THIRD SECTION */}
-           <CenteredText text="You Might Also Like" />
+        <CenteredText text="You Might Also Like" />
+        <div className="flex gap-5 mt-10 relative w-full overflow-x-scroll lg:overflow-x-auto lg:items-center lg:justify-between lg:mt-16">
+          {similarToTaste.length > 0
+            ? similarToTaste.map((item, index) => (
+                <ProductCard
+                  key={index}
+                  imgSrc={item.image}
+                  title={item.title}
+                  rating={item.rating}
+                  discount={item.discount}
+                  price={item.price}
+                />
+              ))
+            : "No new arrival products"}
+        </div>
       </div>
     </div>
   );

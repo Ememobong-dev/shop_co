@@ -1,4 +1,5 @@
 
+import { ratingFn } from "~/utils/RatingFn";
 import fullStar from "../../assets/svgs/golden-full-star.svg";
 import halfStar from "../../assets/svgs/golden-half-star.svg";
 
@@ -17,21 +18,21 @@ export const ProductCard = ({ imgSrc, title, rating, discount, price }: ProductC
     return price - discountPrice;
   };
 
-  const ratingFn = (rating: number) => {
-    let wholeValue;
-    let halfValue: 0 | 1;
-    if (rating % 2 !== 0) {
-        // correct check
-        // rating % 1 !== 0
-      wholeValue = Math.floor(rating);
-      halfValue = 1;
-    } else {
-      wholeValue = rating;
-      halfValue = 0;
-    }
+  // const ratingFn = (rating: number) => {
+  //   let wholeValue;
+  //   let halfValue: 0 | 1;
+  //   if (rating % 2 !== 0) {
+  //       // correct check
+  //       // rating % 1 !== 0
+  //     wholeValue = Math.floor(rating);
+  //     halfValue = 1;
+  //   } else {
+  //     wholeValue = rating;
+  //     halfValue = 0;
+  //   }
 
-    return { wholeValue, halfValue };
-  };
+  //   return { wholeValue, halfValue };
+  // };
 
   return (
     <div className=" w-[70%] lg:w-full flex flex-col justify-center lg:gap-5 shrink-0 lg:shrink ">

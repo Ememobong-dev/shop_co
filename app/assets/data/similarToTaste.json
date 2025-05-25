@@ -1,0 +1,30 @@
+[
+    {
+     "title": "Polo with Contrast Trims",
+     "price": 242,
+     "rating": 4.0,
+     "image": "/similar-to-taste/image1.svg",
+     "discount": 20
+    },
+    {
+     "title": "Gradient Graphic T-shirt",
+     "price": 145,
+     "rating": 3.5,
+     "image": "/similar-to-taste/image2.svg",
+     "discount": 0
+    },
+    {
+     "title": "Polo with Tipping Details",
+     "price": 180,
+     "rating": 4.5,
+     "image": "/similar-to-taste/image3.svg",
+     "discount": 0
+    },
+    {
+     "title": "Black Striped T-shirt",
+     "price": 150,
+     "rating": 5.0,
+     "image": "/similar-to-taste/image4.svg",
+     "discount": 30
+    }
+ ]
