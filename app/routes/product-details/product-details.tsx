@@ -79,6 +79,9 @@ export default function Component({ params }: Route.ComponentProps) {
   const { product } = useLoaderData() as Awaited<ReturnType<typeof loader>>;
   const [activeTab, setActiveTab] = useState("ratings");
   const [productColor, setProductColor] = useState("color1");
+  const [selectedSize, setSelectedSize] = useState("");
+
+
   const productImages = [thumbnail1, thumbnail1, thumbnail2];
 
   return (
@@ -99,9 +102,9 @@ export default function Component({ params }: Route.ComponentProps) {
                 <img src={mainProductImg} className="w-full" alt="main_image" />
               </div>
             </div>
-            <div className="lg:w-1/2 flex flex-col gap-4 divide-y-2 divide-black/10">
-              <div className="w-full flex flex-col gap-4 pb-2">
-                <h3 className="font-integral-bold text-2xl lg:text-4xl ">
+            <div className="lg:w-1/2 flex flex-col divide-y-2 divide-black/10">
+              <div className="w-full flex flex-col gap-4 pb-4">
+                <h3 className="font-integral-bold text-2xl lg:text-[40px] ">
                   One life graphic Tshirt
                 </h3>
                 <div className="flex gap-2">
@@ -142,7 +145,7 @@ export default function Component({ params }: Route.ComponentProps) {
                 </p>
               </div>
               {/* second segment */}
-              <div className="w-full flex flex-col gap-4 py-2">
+              <div className="w-full flex flex-col gap-4 py-4 ">
                 <p className="text-black/60 text-base">Select Colors</p>
                 <div className="flex gap-3">
                   {["color1", "color2", "color3"].map((color, idx) => (
@@ -166,12 +169,13 @@ export default function Component({ params }: Route.ComponentProps) {
                 </div>
               </div>
               {/* third segment */}
-              <div className="w-full flex flex-col gap-4 py-2">
+              <div className="w-full flex flex-col gap-4 py-4">
                 <p className="text-black/60 text-base">Choose Size</p>
                 <div className="flex justify-between lg:justify-normal gap-3">
                   {["Small", "Medium", "Large", "X-Large"].map((size, idx) => (
                     <div
-                      className={`cursor-pointer py-2 px-3 lg:px-8 flex justify-center items-center rounded-full bg-white-50 text-black/60 lg:text-base font-satoshi-reg text-sm `}
+                    onClick={() => setSelectedSize(size)}
+                      className={`cursor-pointer py-2 px-3 lg:px-8 flex justify-center items-center rounded-full hover:border hover:border-amber-200 lg:text-base font-satoshi-reg text-sm ${selectedSize === size ? "bg-black text-white" : "bg-white-50 text-black/60"} `}
                     >
                       {" "}
                       {size}{" "}
@@ -180,7 +184,7 @@ export default function Component({ params }: Route.ComponentProps) {
                 </div>
               </div>
               {/* fourth segment */}
-              <div className="w-full flex flex-col gap-4 py-2">
+              <div className="w-full flex flex-col gap-4 pt-4">
                 <p className="text-black/60 text-base">Choose Size</p>
                 <div className="flex gap-8 justify-between">
                   <div className="bg-white-50 text-black/60 rounded-full  flex justify-between items-center w-1/2 py-3 px-5 ">
