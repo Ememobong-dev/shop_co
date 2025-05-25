@@ -12,6 +12,7 @@ import halfStar from "../../assets/svgs/golden-half-star.svg";
 import { Button } from "~/components/Button";
 import { useState } from "react";
 import dropdownArrow from "../../assets/svgs/dropdownArrow.svg";
+import { Testimonial } from "~/components/Testimonial";
 
 export async function loader({ params }: Route.LoaderArgs) {
   const { productId } = params;
@@ -25,46 +26,50 @@ export async function loader({ params }: Route.LoaderArgs) {
   };
 }
 
-
 const testimonial = [
   {
     testifier: "Sarah M",
     testimony:
       "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+    postedOn: "August 14, 2023",
     ratings: 5,
   },
   {
     testifier: "Alex K",
     testimony:
       "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.",
+    postedOn: "August 15, 2023",
     ratings: 3,
   },
   {
     testifier: "James L",
     testimony:
       "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends.",
+    postedOn: "August 16, 2023",
     ratings: 3.5,
   },
   {
     testifier: "Moose J",
     testimony:
       "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+    postedOn: "August 17, 2023",
     ratings: 4,
   },
   {
     testifier: "Sarah M",
     testimony:
       "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+    postedOn: "August 18, 2023",
     ratings: 5,
   },
   {
     testifier: "James M",
     testimony:
       "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.",
+    postedOn: "August 19, 2023",
     ratings: 5,
   },
 ];
-
 
 export default function Component({ params }: Route.ComponentProps) {
   const { product } = useLoaderData() as Awaited<ReturnType<typeof loader>>;
@@ -250,16 +255,17 @@ export default function Component({ params }: Route.ComponentProps) {
                     </div>
                   </div>
                 </div>
-                <div className="my-8 grid grid-cols-2">
-                  { testimonial.map( (item, index) => (
-                    <div key={index} className="py-7 px-8 border border-black/10">
-
-                    </div>
-                  ) )
-
-                  }
-
-
+                <div className="my-8 grid grid-cols-2 gap-6">
+                  {testimonial.map((item, index) => (
+                    <Testimonial
+                      key={index}
+                      ratings={item.ratings}
+                      testifier={item.testifier}
+                      testimony={item.testimony}
+                      variant="product"
+                      date={item.postedOn}
+                    />
+                  ))}
                 </div>
               </>
             ) : (
