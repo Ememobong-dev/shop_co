@@ -1,7 +1,6 @@
 import { ratingFn } from "~/utils/RatingFn";
 import fullStar from "../../assets/svgs/golden-full-star.svg";
 import halfStar from "../../assets/svgs/golden-half-star.svg";
-import { useNavigate } from "react-router-dom";
 
 type ProductCardType = {
   imgSrc: string;
@@ -18,11 +17,10 @@ export const ProductCard = ({
   discount,
   price,
 }: ProductCardType) => {
-  const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate(`/product-details/${title}`);
-  };
+  // const handleClick = () => {
+  //   navigate(`/product-details/${title}`);
+  // };
 
   const actualPriceFn = ({
     price,
@@ -40,15 +38,16 @@ export const ProductCard = ({
       <img className="w-full " src={imgSrc} />
       <div className="flex flex-col gap-3">
         <p
-          onClick={handleClick}
+          
           className="font-satoshi-bold cursor-pointer hover:text-amber-700 text-lg"
         >
-          {" "}
-          {title
+          <a href={`/product-details/${title}`}>
+           {title
             .toLowerCase()
             .split(" ")
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
             .join(" ")}{" "}
+          </a>
         </p>
         {/* RATINGS */}
         <div className="flex gap-2 items-center">
