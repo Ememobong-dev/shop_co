@@ -24,6 +24,7 @@ import greenMarkImg from "../assets/svgs/green-checkmark.svg";
 import { ProductCard } from "~/components/product-card/ProductCard";
 import { SubscribeArea } from "~/components/subscribeArea/SubscribeArea";
 import { ratingFn } from "~/utils/RatingFn";
+import { useRef } from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -71,8 +72,18 @@ const testimonial = [
   },
 ];
 
-
 export default function Home() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = 500; // You can adjust this value
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <div>
       {/* hero area */}
@@ -217,16 +228,16 @@ export default function Home() {
               OUR HAPPY CUSTOMERS
             </h3>
             <div className="flex gap-2">
-              <span>
+              <span onClick={() => scroll("left")} className="cursor-pointer">
                 <img src={arrowLeft} alt="arrow" />
               </span>
-              <span>
+              <span onClick={() => scroll("right")} className="cursor-pointer">
                 <img src={arrowRight} alt="arrow" />
               </span>
             </div>
           </div>
 
-          <div className="flex gap-5 scrollbar overflow-x-scroll w-full">
+          <div ref={scrollRef} className="flex gap-5 scrollbar overflow-x-scroll w-full">
             {testimonial.map((item, index) => (
               <div
                 key={index}
