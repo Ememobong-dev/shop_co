@@ -1,13 +1,29 @@
-
 import { ratingFn } from "~/utils/RatingFn";
 import fullStar from "../../assets/svgs/golden-full-star.svg";
 import halfStar from "../../assets/svgs/golden-half-star.svg";
+import { useNavigate } from "react-router-dom";
 
+type ProductCardType = {
+  imgSrc: string;
+  title: string;
+  rating: number;
+  discount: number;
+  price: number;
+};
 
-type ProductCardType = { imgSrc: string; title: string; rating: number, discount: number; price: number; };
+export const ProductCard = ({
+  imgSrc,
+  title,
+  rating,
+  discount,
+  price,
+}: ProductCardType) => {
+  const navigate = useNavigate();
 
-export const ProductCard = ({ imgSrc, title, rating, discount, price }: ProductCardType) => {
- 
+  const handleClick = () => {
+    navigate(`/profile-details/${title}`);
+  };
+
   const actualPriceFn = ({
     price,
     discount,
@@ -23,9 +39,10 @@ export const ProductCard = ({ imgSrc, title, rating, discount, price }: ProductC
     <div className=" w-[70%] lg:w-full flex flex-col justify-center lg:gap-5 shrink-0 lg:shrink ">
       <img className="w-full " src={imgSrc} />
       <div className="flex flex-col gap-3">
-        <p 
-        onClick={() => router}
-        className="font-satoshi-bold cursor-pointer hover:text-amber-700 text-lg">
+        <p
+          onClick={handleClick}
+          className="font-satoshi-bold cursor-pointer hover:text-amber-700 text-lg"
+        >
           {" "}
           {title
             .toLowerCase()
