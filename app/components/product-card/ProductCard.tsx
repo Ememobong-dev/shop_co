@@ -21,7 +21,7 @@ export const ProductCard = ({
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/profile-details/${title}`);
+    navigate(`/product-details/${title}`);
   };
 
   const actualPriceFn = ({
