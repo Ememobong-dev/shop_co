@@ -2,6 +2,8 @@
 import { useLoaderData } from "react-router";
 import type { Route } from "./+types/category-details";
 import dropdownArrow from "../../assets/svgs/dropdownArrow.svg";
+import casualCategory from "../../assets/data/casualCategory.json";
+import { ProductCard } from "~/components/product-card/ProductCard";
 
 export async function loader({ params }: Route.LoaderArgs) {
   const { categoryId } = params;
@@ -19,9 +21,15 @@ export default function Component({ params }: Route.ComponentProps) {
 
   return (
     <div className="py-14 pb-48 px-5 md:px-14 3xl:px-32 w-full">
-      <div className="flex  ">
-        <div className="w-[30%] bg-pink-300"></div>
-        <div className="w-[70%]">
+      <div className="flex gap-5  ">
+        <div className="w-[25%] border border-black/10 rounded-3xl py-5 px-6 divide-y divide-black/10">
+        {/* Filter */}
+          <div>
+
+          </div>
+        </div>
+        <div className="w-[75%]">
+          {/* header */}
           <div className="w-full flex justify-between items-center">
             <div>
               <h3 className="font-satoshi-bold text-4xl">{product.id}</h3>
@@ -40,6 +48,22 @@ export default function Component({ params }: Route.ComponentProps) {
                 </div>
               </div>
             </div>
+          </div>
+          {/* products */}
+          <div className="mt-10 grid grid-cols-2 lg:grid-cols-3 gap-5">
+            {casualCategory.length > 0
+              ? casualCategory.map((item, index) => (
+                  <div key={index}>
+                    <ProductCard
+                      imgSrc={item.image}
+                      title={item.title}
+                      rating={item.rating}
+                      discount={item.discount}
+                      price={item.price}
+                    />
+                  </div>
+                ))
+              : "No top selling products"}
           </div>
         </div>
       </div>
