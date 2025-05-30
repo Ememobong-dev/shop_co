@@ -212,12 +212,12 @@ export default function Home() {
             BROWSE BY DRESS STYLE
           </h3>
           <div className="flex flex-col 3xl:flex-row justify-center gap-6 items-stretch w-full">
-            <img src={grid1} className="" alt="grid_img" />
-            <img src={grid2} alt="grid_img" />
+            <a href={`/category-details/casual`}><img src={grid1} className="" alt="grid_img" /></a> 
+            <a href={`/category-details/formal`}><img src={grid2} className="" alt="grid_img" /></a> 
           </div>
           <div className="flex flex-col 3xl:flex-row  mt-6  gap-6 justify-center items-stretch w-full">
-            <img src={grid3} className="" alt="grid_img" />
-            <img src={grid4} className="" alt="grid_img" />
+            <a href={`/category-details/party`}><img src={grid3} className="" alt="grid_img" /></a> 
+            <a href={`/category-details/gym`}><img src={grid4} className="" alt="grid_img" /></a> 
           </div>
         </div>
 
