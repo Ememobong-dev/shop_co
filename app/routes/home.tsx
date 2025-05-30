@@ -22,7 +22,6 @@ import fullStar from "../assets/svgs/golden-full-star.svg";
 import halfStar from "../assets/svgs/golden-half-star.svg";
 import greenMarkImg from "../assets/svgs/green-checkmark.svg";
 import { ProductCard } from "~/components/product-card/ProductCard";
-import { SubscribeArea } from "~/components/subscribeArea/SubscribeArea";
 import { ratingFn } from "~/utils/RatingFn";
 import { useRef } from "react";
 

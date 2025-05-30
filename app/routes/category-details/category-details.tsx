@@ -4,6 +4,8 @@ import type { Route } from "./+types/category-details";
 import dropdownArrow from "../../assets/svgs/dropdownArrow.svg";
 import casualCategory from "../../assets/data/casualCategory.json";
 import { ProductCard } from "~/components/product-card/ProductCard";
+import filterIcon from "../../assets/svgs/grey-filter.svg";
+import rightChevron from "../../assets/svgs/arrow-right.svg";
 
 export async function loader({ params }: Route.LoaderArgs) {
   const { categoryId } = params;
@@ -23,9 +25,17 @@ export default function Component({ params }: Route.ComponentProps) {
     <div className="py-14 pb-48 px-5 md:px-14 3xl:px-32 w-full">
       <div className="flex gap-5  ">
         <div className="w-[25%] border border-black/10 rounded-3xl py-5 px-6 divide-y divide-black/10">
-        {/* Filter */}
+          {/* Filter */}
           <div>
-
+            <div>
+              <div className="flex justify-between items-center w-full">
+                <h2 className="text-xl font-satoshi-bold">Filter</h2>
+                <span>
+                  <img src={filterIcon} alt="filterIcon" />
+                </span>
+              </div>
+            </div>
+            <hr />
           </div>
         </div>
         <div className="w-[75%]">
