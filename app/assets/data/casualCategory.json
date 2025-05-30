@@ -1,10 +1,24 @@
 [
    {
-    "title": "T-SHIRT WITH TAPE DETAILS",
-    "price": 120,
-    "rating": 4.5,
-    "image": "/new-arrivals/image1.svg",
+    "title": "Gradient Graphic T-shirt",
+    "price": 145,
+    "rating": 3.5,
+    "image": "/similar-to-taste/image2.svg",
     "discount": 0
+   },
+   {
+    "title": "Polo with Tipping Details",
+    "price": 180,
+    "rating": 4.5,
+    "image": "/similar-to-taste/image3.svg",
+    "discount": 0
+   },
+   {
+    "title": "Black Striped T-shirt",
+    "price": 150,
+    "rating": 5.0,
+    "image": "/similar-to-taste/image4.svg",
+    "discount": 30
    },
    {
     "title": "SKINNY FIT JEANS",
@@ -24,7 +38,29 @@
     "title": "SLEEVE STRIPED T-SHIRT",
     "price": 160,
     "rating": 4.5,
-    "image": "/new-arrivals/image4.svg",
+    "image": "/top-selling/image1.svg",
     "discount": 30
+   },
+   {
+    "title": "VERTICAL STRIPED SHIRT",
+    "price": 232,
+    "rating": 5.0,
+    "image": "/top-selling/image2.svg",
+    "discount": 20
+   },
+   {
+    "title": "COURAGE GRAPHIC T-SHIRT",
+    "price": 145,
+    "rating": 4.0,
+    "image": "/top-selling/image3.svg",
+    "discount": 0
+   },
+   {
+    "title": "LOOSE FIT BERMUDA SHORTS",
+    "price": 80,
+    "rating": 3.0,
+    "image": "/new-arrivals/image4.svg",
+    "discount": 0
    }
+   
 ]
