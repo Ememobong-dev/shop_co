@@ -17,9 +17,9 @@ import { Testimonial } from "~/components/Testimonial";
 import { CenteredText } from "~/components/CenteredHeaderText";
 import similarToTaste from "../../assets/data/similarToTaste.json";
 import { ProductCard } from "~/components/product-card/ProductCard";
-import mainImg1 from "../../assets/images/singleProduct/image1.png"
-import mainImg2 from "../../assets/images/singleProduct/image2.png"
-import mainImg3 from "../../assets/images/singleProduct/image3.png"
+import mainImg1 from "../../assets/images/singleProduct/image1.png";
+import mainImg2 from "../../assets/images/singleProduct/image2.png";
+import mainImg3 from "../../assets/images/singleProduct/image3.png";
 
 export async function loader({ params }: Route.LoaderArgs) {
   const { productId } = params;
@@ -85,17 +85,17 @@ export default function Component({ params }: Route.ComponentProps) {
   const [selectedSize, setSelectedSize] = useState("");
   const [selectedProductImgIndex, setSelectedProductImgIndex] = useState(0);
   const [quantityNeeded, setQuantityNeeded] = useState(1);
-  const [showMore, setShowMore] = useState(4)
+  const [showMore, setShowMore] = useState(4);
 
   const productThumbnails = [thumbnail1, thumbnail1, thumbnail2];
   const mainProductImages = [mainImg1, mainImg2, mainImg3];
 
-const handleLoadMore = () => {
-  setShowMore(testimonial.length);
-  if(showMore === testimonial.length ) {
-    setShowMore(4)
-  }
-}
+  const handleLoadMore = () => {
+    setShowMore(testimonial.length);
+    if (showMore === testimonial.length) {
+      setShowMore(4);
+    }
+  };
 
   return (
     <div className="flex justify-center">
@@ -124,7 +124,11 @@ const handleLoadMore = () => {
                 ))}
               </div>
               <div className="relative w-full rounded-[20px] flex justify-center items-center">
-                <img src={mainProductImages[selectedProductImgIndex]} className="w-full object-cover min-h-full max-h-[600px] rounded-[20px]" alt="main_image" />
+                <img
+                  src={mainProductImages[selectedProductImgIndex]}
+                  className="w-full object-cover min-h-full max-h-[600px] rounded-[20px]"
+                  alt="main_image"
+                />
               </div>
             </div>
             <div className="lg:w-1/2 flex flex-col divide-y-2 divide-black/10">
@@ -175,6 +179,7 @@ const handleLoadMore = () => {
                 <div className="flex gap-3">
                   {["color1", "color2", "color3"].map((color, idx) => (
                     <div
+                      key={idx}
                       onClick={() => setProductColor(color)}
                       className={`w-8 h-8 cursor-pointer flex justify-center items-center rounded-full ${
                         idx === 0
@@ -199,6 +204,7 @@ const handleLoadMore = () => {
                 <div className="flex justify-between lg:justify-normal gap-3">
                   {["Small", "Medium", "Large", "X-Large"].map((size, idx) => (
                     <div
+                      key={idx}
                       onClick={() => setSelectedSize(size)}
                       className={`cursor-pointer py-2 px-3 lg:px-8 flex justify-center items-center rounded-full hover:border hover:border-amber-200 lg:text-base font-satoshi-reg text-sm ${
                         selectedSize === size
@@ -222,7 +228,11 @@ const handleLoadMore = () => {
                         src={minusIcon}
                         className="w-4 h-4 cursor-pointer"
                         alt="minus_icon"
-                        onClick={() => setQuantityNeeded((prev) => prev > 1 ? prev - 1 : prev)}
+                        onClick={() =>
+                          setQuantityNeeded((prev) =>
+                            prev > 1 ? prev - 1 : prev
+                          )
+                        }
                       />
                     </span>
                     <span className="font-satoshi-med text-black text-base">
@@ -331,7 +341,11 @@ const handleLoadMore = () => {
                   ))}
                 </div>
                 <div className="flex items-center mt-10 justify-center">
-                  <Button onClick={handleLoadMore} variant="bordered" text={showMore === 4 ? "Load More Reviews" : "Show Less"} />
+                  <Button
+                    onClick={handleLoadMore}
+                    variant="bordered"
+                    text={showMore === 4 ? "Load More Reviews" : "Show Less"}
+                  />
                 </div>
               </>
             ) : (
