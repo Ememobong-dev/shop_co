@@ -5,7 +5,7 @@ import dropdownArrow from "../../assets/svgs/dropdownArrow.svg";
 import casualCategory from "../../assets/data/casualCategory.json";
 import { ProductCard } from "~/components/product-card/ProductCard";
 import filterIcon from "../../assets/svgs/grey-filter.svg";
-import rightChevron from "../../assets/svgs/arrow-right.svg";
+import rightChevron from "../../assets/svgs/right-chevron.svg";
 
 export async function loader({ params }: Route.LoaderArgs) {
   const { categoryId } = params;
@@ -35,7 +35,40 @@ export default function Component({ params }: Route.ComponentProps) {
                 </span>
               </div>
             </div>
-            <hr />
+            <hr className="my-4 border-black/10" />
+            <div className="flex flex-col gap-5">
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">T-shirts</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">Shorts</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">Shirts</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">Hoodie</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">Jeans</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
+              </div>
+
+            </div>
           </div>
         </div>
         <div className="w-[75%]">
