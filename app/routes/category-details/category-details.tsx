@@ -6,6 +6,7 @@ import casualCategory from "../../assets/data/casualCategory.json";
 import { ProductCard } from "~/components/product-card/ProductCard";
 import filterIcon from "../../assets/svgs/grey-filter.svg";
 import darkfilterIcon from "../../assets/svgs/product-detail-svg/filter-icon.svg";
+import cancelGray from "../../assets/svgs/cancel-gray.svg";
 import rightChevron from "../../assets/svgs/right-chevron.svg";
 import arrowUp from "../../assets/svgs/arrow-up.svg";
 import { useEffect, useState } from "react";
@@ -372,9 +373,9 @@ const BottomFilterDrawer = ({
             <div className="flex justify-between items-center w-full">
               <h2 className="text-xl font-satoshi-bold">Filter</h2>
               <span>
-                <img src={filterIcon} alt="filterIcon" />
+                <img src={cancelGray} alt="cancelGray" />
               </span>
-            </div>
+            </div> 
           </div>
           <hr className="my-4 border-black/10" />
           <div className="flex flex-col gap-5">
