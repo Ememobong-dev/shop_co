@@ -15,6 +15,7 @@ import { Button } from "~/components/Button";
 import arrowLeft from "../../assets/svgs/arrow-left.svg";
 import arrowRight from "../../assets/svgs/arrow-right.svg";
 import { Drawer } from "~/components/Drawer/Drawer";
+import CustomSlider from "~/components/custom-slider/CustomSlider";
 
 const colorScheme = [
   "color1",
@@ -122,7 +123,7 @@ export default function Component({ params }: Route.ComponentProps) {
               </span>
             </div>
             <div>
-              
+              <CustomSlider />
             </div>
           </div>
           {/* COLORS  */}
@@ -413,6 +414,9 @@ export default function Component({ params }: Route.ComponentProps) {
               <span>
                 <img src={arrowUp} alt="arrowUp" />
               </span>
+              <div>
+                <CustomSlider />
+              </div>
             </div>
             <div>
               <h3 className="mb-2 text-lg font-semibold">Value: {value}</h3>

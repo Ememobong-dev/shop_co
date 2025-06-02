@@ -14,8 +14,10 @@ const CustomSlider = () => {
             handleSize: 16,
             trackBg: "black",
             trackBgDisabled: "rgba(0,0,0,0.2)",
-            controlSize: 12,      // Increases height of slider control
-            railSize: 6           // Slightly more height than default (4)
+            controlSize: 12,
+            railSize: 6,
+            trackHoverBg: "black",
+            handleActiveOutlineColor: "black"
           }
         }
       }}
