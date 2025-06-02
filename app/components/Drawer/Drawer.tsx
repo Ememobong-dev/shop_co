@@ -34,7 +34,7 @@ export const Drawer = ({
       }`}
     >
       <div
-        className={` ${width ? `!w-[${width}%]` : "!w-full"} ${height ? `h-[${height}%]` : "!h-screen"}  absolute ${drawerPosition && `${drawerPosition}-0` } ${drawerPosition ==="bottom" ? "rounded-t-3xl" : "rounded-none" }  bg-white px-4 py-8 border border-black/10 overflow-auto ${className} `}
+        className={` ${width ? `!w-[${width}%]` : "!w-full"} ${height ? `h-[${height}%]` : "!h-screen"}  absolute ${drawerPosition && `${drawerPosition}-0` } ${drawerPosition ==="bottom" ? "rounded-t-3xl" : "rounded-none" }  bg-white px-4 py-2 border border-black/10 overflow-auto ${className} `}
         onClick={(e) => e.stopPropagation()}
       >
         {children}
