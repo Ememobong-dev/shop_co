@@ -14,6 +14,7 @@ import colorCheckmark from "../../assets/svgs/product-detail-svg/color-checkmark
 import { Button } from "~/components/Button";
 import arrowLeft from "../../assets/svgs/arrow-left.svg";
 import arrowRight from "../../assets/svgs/arrow-right.svg";
+import { Drawer } from "~/components/Drawer/Drawer";
 
 const colorScheme = [
   "color1",
@@ -57,13 +58,13 @@ export default function Component({ params }: Route.ComponentProps) {
   const [selectedSize, setSelectedSize] = useState("");
   const [bottomDrawerOpen, setBottomDrawerOpen] = useState(false);
 
-  useEffect( () => {
-    if(bottomDrawerOpen) {
-      document.body.classList.add("overflow-hidden")
-    } else{
-      document.body.classList.remove("overflow-hidden")
+  useEffect(() => {
+    if (bottomDrawerOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
     }
-  }, [bottomDrawerOpen])
+  }, [bottomDrawerOpen]);
 
   return (
     <div className="py-14  pb-48 px-5 md:px-14 3xl:px-32 w-full">
@@ -346,189 +347,185 @@ export default function Component({ params }: Route.ComponentProps) {
           </div>
         </div>
       </div>
-      <BottomFilterDrawer open={bottomDrawerOpen} />
-    </div>
-  );
-}
 
-const BottomFilterDrawer = ({
-  open,
-  onCancel,
-}: {
-  open: boolean;
-  onCancel?: () => void;
-}) => {
-  const [productColor, setProductColor] = useState("color1");
-  const [selectedSize, setSelectedSize] = useState("");
-
-  return (
-    <div className={`${open ? "visible fixed z-50 bg-black/10 inset-0 lg:hidden" : "hidden"}`} >
-      <div
-        className="absolute bottom-0 w-full h-[90%] rounded-t-3xl bg-white px-4 py-8 border border-black/10
-    divide-y divide-black/10 overflow-auto "
+      {/* MOBILE BOTTOM DRAWER */}
+      <Drawer
+        open={bottomDrawerOpen}
+        onCancel={() => setBottomDrawerOpen(false)}
       >
-        {/* Filter */}
-        <div className="pb-5">
-          <div>
-            <div className="flex justify-between items-center w-full">
-              <h2 className="text-xl font-satoshi-bold">Filter</h2>
-              <span>
-                <img src={cancelGray} alt="cancelGray" />
-              </span>
-            </div> 
-          </div>
-          <hr className="my-4 border-black/10" />
-          <div className="flex flex-col gap-5">
-            <div className="flex justify-between items-center">
-              <p className="text-black/60 text-base">T-shirts</p>
-              <span>
-                <img src={rightChevron} alt="" />
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <p className="text-black/60 text-base">Shorts</p>
-              <span>
-                <img src={rightChevron} alt="" />
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <p className="text-black/60 text-base">Shirts</p>
-              <span>
-                <img src={rightChevron} alt="" />
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <p className="text-black/60 text-base">Hoodie</p>
-              <span>
-                <img src={rightChevron} alt="" />
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <p className="text-black/60 text-base">Jeans</p>
-              <span>
-                <img src={rightChevron} alt="" />
-              </span>
-            </div>
-          </div>
-        </div>
-        {/*  */}
-        <div className="pb-5">
-          <div className="w-full flex justify-between items-center">
-            <h2 className="text-xl font-satoshi-bold">Price</h2>
-            <span>
-              <img src={arrowUp} alt="arrowUp" />
-            </span>
-          </div>
-        </div>
-        {/* COLORS  */}
-        <div className="pb-5">
-          <div className="w-full flex justify-between items-center">
-            <h2 className="text-xl font-satoshi-bold">Colors</h2>
-            <span>
-              <img src={arrowUp} alt="arrowUp" />
-            </span>
-          </div>
-          <div className="grid grid-cols-5 gap-y-3 mt-5">
-            {colorScheme.map((color, idx) => (
-              <div
-                onClick={() => setProductColor(color)}
-                className={`w-12 h-12 border border-black/20 cursor-pointer flex justify-center items-center rounded-full ${
-                  idx === 0
-                    ? "bg-[#00C12B]"
-                    : idx === 1
-                    ? "bg-[#F50606]"
-                    : idx === 1
-                    ? "bg-[#F5DD06]"
-                    : idx === 2
-                    ? "bg-[#F57906]"
-                    : idx === 3
-                    ? "bg-[#06CAF5]"
-                    : idx === 4
-                    ? "bg-[#063AF5]"
-                    : idx === 5
-                    ? "bg-[#7D06F5]"
-                    : idx === 6
-                    ? "bg-[#F506A4]"
-                    : idx === 7
-                    ? "bg-[#FFFFFF]"
-                    : "bg-[#31344F]"
-                }`}
-              >
-                {color === productColor && (
-                  <span>
-                    <img src={colorCheckmark} alt="checkmark" />
-                  </span>
-                )}
+        <div>
+          {/* Filter */}
+          <div className="pb-5">
+            <div>
+              <div className="flex justify-between items-center w-full">
+                <h2 className="text-xl font-satoshi-bold">Filter</h2>
+                <span>
+                  <img
+                    onClick={() => setBottomDrawerOpen(false)}
+                    src={cancelGray}
+                    alt="cancelGray"
+                  />
+                </span>
               </div>
-            ))}
-          </div>
-        </div>
-        {/* SIZES  */}
-        <div className="pb-5">
-          <div className="w-full flex justify-between items-center">
-            <h2 className="text-xl font-satoshi-bold">Size</h2>
-            <span>
-              <img src={arrowUp} alt="arrowUp" />
-            </span>
-          </div>
-          <div className="flex flex-wrap gap-5 mt-5">
-            {sizes.map((size, idx) => (
-              <div
-                key={idx}
-                onClick={() => setSelectedSize(size)}
-                className={`cursor-pointer py-3 px-3 lg:px-8 flex justify-center items-center rounded-full hover:border hover:border-amber-200 lg:text-base font-satoshi-reg text-sm ${
-                  selectedSize === size
-                    ? "bg-black text-white"
-                    : "bg-white-50 text-black/60"
-                } `}
-              >
-                {" "}
-                {size}{" "}
+            </div>
+            <hr className="my-4 border-black/10" />
+            <div className="flex flex-col gap-5">
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">T-shirts</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
               </div>
-            ))}
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">Shorts</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">Shirts</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">Hoodie</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">Jeans</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-        {/* Dress Style */}
-        <div className="pb-5">
-          <div>
-            <div className="flex justify-between items-center w-full">
-              <h2 className="text-xl font-satoshi-bold">Dress Style</h2>
+          {/*  */}
+          <div className="py-5">
+            <div className="w-full flex justify-between items-center">
+              <h2 className="text-xl font-satoshi-bold">Price</h2>
               <span>
                 <img src={arrowUp} alt="arrowUp" />
               </span>
             </div>
           </div>
-          <div className="flex flex-col gap-5 mt-5">
-            <div className="flex justify-between items-center">
-              <p className="text-black/60 text-base">Casual</p>
+          {/* COLORS  */}
+          <div className="py-5">
+            <div className="w-full flex justify-between items-center">
+              <h2 className="text-xl font-satoshi-bold">Colors</h2>
               <span>
-                <img src={rightChevron} alt="" />
+                <img src={arrowUp} alt="arrowUp" />
               </span>
             </div>
-            <div className="flex justify-between items-center">
-              <p className="text-black/60 text-base">Formal</p>
-              <span>
-                <img src={rightChevron} alt="" />
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <p className="text-black/60 text-base">Party</p>
-              <span>
-                <img src={rightChevron} alt="" />
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <p className="text-black/60 text-base">Gym</p>
-              <span>
-                <img src={rightChevron} alt="" />
-              </span>
+            <div className="grid grid-cols-5 gap-y-3 mt-5">
+              {colorScheme.map((color, idx) => (
+                <div
+                  onClick={() => setProductColor(color)}
+                  className={`w-12 h-12 border border-black/20 cursor-pointer flex justify-center items-center rounded-full ${
+                    idx === 0
+                      ? "bg-[#00C12B]"
+                      : idx === 1
+                      ? "bg-[#F50606]"
+                      : idx === 1
+                      ? "bg-[#F5DD06]"
+                      : idx === 2
+                      ? "bg-[#F57906]"
+                      : idx === 3
+                      ? "bg-[#06CAF5]"
+                      : idx === 4
+                      ? "bg-[#063AF5]"
+                      : idx === 5
+                      ? "bg-[#7D06F5]"
+                      : idx === 6
+                      ? "bg-[#F506A4]"
+                      : idx === 7
+                      ? "bg-[#FFFFFF]"
+                      : "bg-[#31344F]"
+                  }`}
+                >
+                  {color === productColor && (
+                    <span>
+                      <img src={colorCheckmark} alt="checkmark" />
+                    </span>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
-          <div className="mt-5">
-            <Button variant="filled" size="md" fullWidth text="Apply Filter" />
+          {/* SIZES  */}
+          <div className="py-5">
+            <div className="w-full flex justify-between items-center">
+              <h2 className="text-xl font-satoshi-bold">Size</h2>
+              <span>
+                <img src={arrowUp} alt="arrowUp" />
+              </span>
+            </div>
+            <div className="flex flex-wrap gap-5 mt-5">
+              {sizes.map((size, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => setSelectedSize(size)}
+                  className={`cursor-pointer py-3 px-3 lg:px-8 flex justify-center items-center rounded-full hover:border hover:border-amber-200 lg:text-base font-satoshi-reg text-sm ${
+                    selectedSize === size
+                      ? "bg-black text-white"
+                      : "bg-white-50 text-black/60"
+                  } `}
+                >
+                  {" "}
+                  {size}{" "}
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Dress Style */}
+          <div className="py-5">
+            <div>
+              <div className="flex justify-between items-center w-full">
+                <h2 className="text-xl font-satoshi-bold">Dress Style</h2>
+                <span>
+                  <img src={arrowUp} alt="arrowUp" />
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col gap-5 mt-5">
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">Casual</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">Formal</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">Party</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-black/60 text-base">Gym</p>
+                <span>
+                  <img src={rightChevron} alt="" />
+                </span>
+              </div>
+            </div>
+            <div className="mt-5">
+              <Button
+                variant="filled"
+                size="md"
+                fullWidth
+                text="Apply Filter"
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </Drawer>
     </div>
   );
-};
+}
