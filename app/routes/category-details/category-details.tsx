@@ -10,6 +10,8 @@ import arrowUp from "../../assets/svgs/arrow-up.svg";
 import { useState } from "react";
 import colorCheckmark from "../../assets/svgs/product-detail-svg/color-checkmark.svg";
 import { Button } from "~/components/Button";
+import arrowLeft from "../../assets/svgs/arrow-left.svg";
+import arrowRight from "../../assets/svgs/arrow-right.svg";
 
 export async function loader({ params }: Route.LoaderArgs) {
   const { categoryId } = params;
@@ -55,7 +57,7 @@ export default function Component({ params }: Route.ComponentProps) {
   return (
     <div className="py-14 pb-48 px-5 md:px-14 3xl:px-32 w-full">
       <div className="flex items-start gap-8">
-        <div className="w-[25%] h-auto border border-black/10 rounded-3xl py-5 px-6 divide-y divide-black/10 flex flex-col gap-5">
+        <div className="w-[25%] hidden lg:flex flex-col gap-5 h-auto border border-black/10 rounded-3xl py-5 px-6 divide-y divide-black/10 ">
           {/* Filter */}
           <div className="pb-5">
             <div>
@@ -214,15 +216,22 @@ export default function Component({ params }: Route.ComponentProps) {
               </div>
             </div>
             <div className="mt-5">
-              <Button variant="filled" size="md" fullWidth text="Apply Filter" />
+              <Button
+                variant="filled"
+                size="md"
+                fullWidth
+                text="Apply Filter"
+              />
             </div>
           </div>
         </div>
-        <div className="w-[75%]">
-          {/* header */}
-          <div className="w-full flex justify-between items-center">
+        <div className=" w-full lg:w-[75%]">
+          {/* header DESKTOP */}
+          <div className="w-full hidden lg:flex justify-between items-center">
             <div>
-              <h3 className="font-satoshi-bold text-4xl capitalize">{product.id}</h3>
+              <h3 className="font-satoshi-bold text-4xl capitalize">
+                {product.id}
+              </h3>
             </div>
             <div className="flex gap-3 ">
               <span>
@@ -239,6 +248,20 @@ export default function Component({ params }: Route.ComponentProps) {
               </div>
             </div>
           </div>
+          {/* header MOBILE */}
+          <div className="w-full lg:hidden flex justify-between items-center">
+            <div className="flex gap-3 items-center ">
+              <h3 className="font-satoshi-bold text-3xl capitalize">
+                {product.id}
+              </h3>
+              <span>
+                <p className="text-black/60 text-sm">Showing 1-10 of 100 Products</p>
+              </span>
+            </div>
+            <span>
+              <img src={filterIcon} alt="filterIcon" />
+            </span>
+          </div>
           {/* products */}
           <div className="mt-10 grid grid-cols-2 lg:grid-cols-3 gap-5">
             {casualCategory.length > 0
@@ -250,10 +273,60 @@ export default function Component({ params }: Route.ComponentProps) {
                       rating={item.rating}
                       discount={item.discount}
                       price={item.price}
+                      inGrid
                     />
                   </div>
                 ))
               : "No top selling products"}
+          </div>
+          <hr className="my-4 border-black/10" />
+          <div className="flex gap-4 justify-between items-center">
+            <button className="rounded-xl border border-black/10 py-2 px-3.5 text-sm lg:text-base flex gap-2 justify-center items-center">
+              <span className="cursor-pointer">
+                <img src={arrowLeft} className="w-5 h-5" alt="arrow" />
+              </span>
+              Previous
+            </button>
+            <div className="flex gap-2 lg:gap-8 justify-center items-center">
+              <div className="bg-black/6 rounded-xl flex justify-center items-center py-3 px-4 lg:px-6">
+                <p className="text-black text-sm cursor-pointer">1</p>
+              </div>
+              <div>
+                <p className="text-black/50 text-sm lg:text-base cursor-pointer hover:underline ">
+                  2
+                </p>
+              </div>
+              <div>
+                <p className="text-black/50 hidden lg:block text-sm lg:text-base cursor-pointer hover:underline ">
+                  3
+                </p>
+              </div>
+              {/* Ellipses */}
+              <p className="text-black/50 text-sm lg:text-base cursor-pointer hover:underline ">
+                ...
+              </p>
+              <div>
+                <p className="text-black/50 hidden lg:block text-sm lg:text-base cursor-pointer hover:underline ">
+                  8
+                </p>
+              </div>
+              <div>
+                <p className="text-black/50 text-sm lg:text-base cursor-pointer hover:underline ">
+                  9
+                </p>
+              </div>
+              <div>
+                <p className="text-black/50 text-sm lg:text-base cursor-pointer hover:underline ">
+                  10
+                </p>
+              </div>
+            </div>
+            <button className=" rounded-xl border border-black/10 py-2 px-3.5 text-sm lg:text-base flex gap-2 justify-center items-center">
+              Next
+              <span className="cursor-pointer">
+                <img src={arrowRight} className="w-5 h-5" alt="arrow" />
+              </span>
+            </button>
           </div>
         </div>
       </div>

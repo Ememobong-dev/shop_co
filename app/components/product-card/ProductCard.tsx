@@ -8,6 +8,7 @@ type ProductCardType = {
   rating: number;
   discount: number;
   price: number;
+  inGrid?: boolean;
 };
 
 export const ProductCard = ({
@@ -16,8 +17,8 @@ export const ProductCard = ({
   rating,
   discount,
   price,
+  inGrid = false,
 }: ProductCardType) => {
-
   // const handleClick = () => {
   //   navigate(`/product-details/${title}`);
   // };
@@ -34,21 +35,40 @@ export const ProductCard = ({
   };
 
   return (
-    <div className=" w-[70%] lg:w-full flex flex-col justify-center lg:gap-5 shrink-0 lg:shrink ">
+    <div
+      className={` ${
+        inGrid && "w-full"
+      } w-[70%] lg:w-full flex flex-col justify-center lg:gap-5 shrink-0 lg:shrink `}
+    >
       <img className="w-full " src={imgSrc} />
       <div className="flex flex-col gap-3">
-        <p
-          
-          className="font-satoshi-bold cursor-pointer hover:text-amber-700 text-lg"
-        >
-          <a href={`/product-details/${title}`}>
-           {title
-            .toLowerCase()
-            .split(" ")
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(" ")}{" "}
-          </a>
-        </p>
+        {inGrid ? (
+          <p
+            className={`font-satoshi-bold cursor-pointer hover:text-amber-700 text-base lg:text-lg`}
+          >
+            <a href={`/product-details/${title}`}>
+              {title
+                .toLowerCase()
+                .split(" ")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ")
+              }
+            </a>
+          </p>
+        ) : (
+          <p
+            className={`font-satoshi-bold cursor-pointer hover:text-amber-700 text-lg`}
+          >
+            <a href={`/product-details/${title}`}>
+              {title
+                .toLowerCase()
+                .split(" ")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ")}{" "}
+            </a>
+          </p>
+        )}
+
         {/* RATINGS */}
         <div className="flex gap-2 items-center">
           <div className="flex gap-2">
@@ -79,7 +99,11 @@ export const ProductCard = ({
         <div>
           {discount > 0 ? (
             <div className="flex gap-5 items-center">
-              <p className="font-satoshi-bold text-black text-xl">
+              <p
+                className={`font-satoshi-bold text-black ${
+                  inGrid ? "text-sm lg:text-xl" : "text-xl"
+                }`}
+              >
                 {" "}
                 $
                 {actualPriceFn({
@@ -87,7 +111,11 @@ export const ProductCard = ({
                   discount: discount,
                 })}{" "}
               </p>
-              <p className="font-satoshi-bold line-through text-black/40 text-xl">
+              <p
+                className={`font-satoshi-bold line-through text-black/40 ${
+                  inGrid ? "text-sm lg:text-xl" : "text-xl"
+                }`}
+              >
                 {" "}
                 ${price}
               </p>
@@ -99,7 +127,11 @@ export const ProductCard = ({
           ) : (
             <div>
               {" "}
-              <p className="font-satoshi-bold text-black text-xl">
+              <p
+                className={`font-satoshi-bold text-black ${
+                  inGrid ? "text-sm lg:text-xl" : "text-xl"
+                }`}
+              >
                 {" "}
                 ${price}{" "}
               </p>{" "}
