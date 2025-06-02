@@ -217,7 +217,10 @@ export const Navbar = () => {
             <div className="flex flex-col gap-5">
               <div>
                 <p
-                  onClick={() => setActiveTab("Home")}
+                  onClick={() => {
+                    setActiveTab("Home");
+                    setDrawerOpened(false);
+                  }}
                   className={` ${
                     activeTab === "Home"
                       ? "font-bold text-2xl text-blue-300"
@@ -229,7 +232,10 @@ export const Navbar = () => {
               </div>
               <div>
                 <p
-                  onClick={() => setActiveTab("Cart")}
+                  onClick={() => {
+                    setActiveTab("Cart");
+                    setDrawerOpened(false);
+                  }}
                   className={` ${
                     activeTab === "Cart"
                       ? "font-bold text-2xl text-blue-300"
@@ -241,7 +247,10 @@ export const Navbar = () => {
               </div>
               <div>
                 <p
-                  onClick={() => setActiveTab("Profile")}
+                  onClick={() => {
+                    setActiveTab("Profile");
+                    setDrawerOpened(false);
+                  }}
                   className={` ${
                     activeTab === "Profile"
                       ? "font-bold text-2xl text-blue-300"

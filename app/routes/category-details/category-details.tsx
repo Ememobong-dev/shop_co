@@ -354,7 +354,7 @@ export default function Component({ params }: Route.ComponentProps) {
       >
         <div className="py-8">
           {/* Filter */}
-          <div className="pb-5">
+          <div className="pb-5"> 
             <div>
               <div className="flex justify-between items-center w-full">
                 <h2 className="text-xl font-satoshi-bold">Filter</h2>

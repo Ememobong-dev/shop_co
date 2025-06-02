@@ -67,3 +67,8 @@ body {
     color-scheme: dark;
   }
 } */
+
+
+.ant-slider .ant-slider-handle::after{
+      background-color: black;
+}
