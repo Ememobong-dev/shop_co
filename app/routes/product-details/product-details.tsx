@@ -3,7 +3,6 @@ import { useLoaderData } from "react-router";
 import type { Route } from "./+types/product-details";
 import thumbnail1 from "../../assets/svgs/product-detail-svg/thumbnail1.svg";
 import thumbnail2 from "../../assets/svgs/product-detail-svg/thumbnail2.svg";
-import mainProductImg from "../../assets/svgs/product-detail-svg/mainProductImg.svg";
 import minusIcon from "../../assets/svgs/product-detail-svg/minusIcon.svg";
 import plusIcon from "../../assets/svgs/product-detail-svg/plusIcon.svg";
 import filterIcon from "../../assets/svgs/product-detail-svg/filter-icon.svg";
@@ -103,8 +102,8 @@ export default function Component({ params }: Route.ComponentProps) {
         {/* HEADEER */}
         <div>
           <div className="flex flex-col lg:flex-row gap-20 ">
-            <div className="flex flex-col-reverse lg:flex-row item-stretch gap-4 lg:w-1/2">
-              <div className="flex justify-between lg:flex-col gap-3 h-full ">
+            <div className="flex flex-col-reverse lg:flex-row  item-stretch gap-4 lg:w-1/2">
+              <div className="flex justify-between lg:flex-col lg:shrink-0 gap-3 h-full ">
                 {productThumbnails.map((img, index) => (
                   <div
                     key={index}
