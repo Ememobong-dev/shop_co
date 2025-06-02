@@ -57,7 +57,13 @@ export default function Component({ params }: Route.ComponentProps) {
   const [productColor, setProductColor] = useState("color1");
   const [selectedSize, setSelectedSize] = useState("");
   const [bottomDrawerOpen, setBottomDrawerOpen] = useState(false);
+  const [value, setValue] = useState<number>(50);
 
+  const handleChange = (val: number) => {
+    if (typeof val === "number") {
+      setValue(val);
+    }
+  };
 
   return (
     <div className="py-14  pb-48 px-5 md:px-14 3xl:px-32 w-full">
@@ -114,6 +120,9 @@ export default function Component({ params }: Route.ComponentProps) {
               <span>
                 <img src={arrowUp} alt="arrowUp" />
               </span>
+            </div>
+            <div>
+              
             </div>
           </div>
           {/* COLORS  */}
@@ -404,6 +413,9 @@ export default function Component({ params }: Route.ComponentProps) {
               <span>
                 <img src={arrowUp} alt="arrowUp" />
               </span>
+            </div>
+            <div>
+              <h3 className="mb-2 text-lg font-semibold">Value: {value}</h3>
             </div>
           </div>
           {/* COLORS  */}
