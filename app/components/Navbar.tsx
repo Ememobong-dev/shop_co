@@ -8,6 +8,9 @@ import hamburger from "../assets/svgs/hamburger.svg";
 import { useEffect, useState } from "react";
 import cancelIcon from "app/assets/svgs/cancel-white.svg";
 import { Link } from "react-router";
+import arrowUp from "../assets/svgs/arrow-up.svg";
+
+
 
 export const Navbar = () => {
   const [drawerOpened, setDrawerOpened] = useState(false);
@@ -45,7 +48,7 @@ export const Navbar = () => {
           >
             <p>Shop</p>
             <span>
-              <img src={dropdownArrow} alt="brand_logo" />
+              <img src={shopDropdown ? arrowUp : dropdownArrow} alt="brand_logo" />
             </span>
           </div>
           <div
@@ -55,7 +58,7 @@ export const Navbar = () => {
           >
             <p>Multiple Dropdown</p>
             <span>
-              <img src={dropdownArrow} alt="brand_logo" />
+              <img src={multipleDropdown ? arrowUp : dropdownArrow} alt="brand_logo" />
             </span>
           </div>
           <span>

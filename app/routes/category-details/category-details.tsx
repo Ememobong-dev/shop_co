@@ -54,8 +54,8 @@ export default function Component({ params }: Route.ComponentProps) {
 
   return (
     <div className="py-14 pb-48 px-5 md:px-14 3xl:px-32 w-full">
-      <div className="flex gap-5">
-        <div className="w-[25%] border border-black/10 rounded-3xl py-5 px-6 divide-y divide-black/10 flex flex-col gap-5">
+      <div className="flex items-start gap-8">
+        <div className="w-[25%] h-auto border border-black/10 rounded-3xl py-5 px-6 divide-y divide-black/10 flex flex-col gap-5">
           {/* Filter */}
           <div className="pb-5">
             <div>
@@ -222,7 +222,7 @@ export default function Component({ params }: Route.ComponentProps) {
           {/* header */}
           <div className="w-full flex justify-between items-center">
             <div>
-              <h3 className="font-satoshi-bold text-4xl">{product.id}</h3>
+              <h3 className="font-satoshi-bold text-4xl capitalize">{product.id}</h3>
             </div>
             <div className="flex gap-3 ">
               <span>
