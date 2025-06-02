@@ -51,8 +51,8 @@ export const ProductCard = ({
                 .toLowerCase()
                 .split(" ")
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(" ")
-              }
+                .join(" ").slice(0, 19)
+              }...
             </a>
           </p>
         ) : (
