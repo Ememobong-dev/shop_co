@@ -9,7 +9,7 @@ import darkfilterIcon from "../../assets/svgs/product-detail-svg/filter-icon.svg
 import cancelGray from "../../assets/svgs/cancel-gray.svg";
 import rightChevron from "../../assets/svgs/right-chevron.svg";
 import arrowUp from "../../assets/svgs/arrow-up.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import colorCheckmark from "../../assets/svgs/product-detail-svg/color-checkmark.svg";
 import { Button } from "~/components/Button";
 import arrowLeft from "../../assets/svgs/arrow-left.svg";
@@ -58,13 +58,6 @@ export default function Component({ params }: Route.ComponentProps) {
   const [selectedSize, setSelectedSize] = useState("");
   const [bottomDrawerOpen, setBottomDrawerOpen] = useState(false);
 
-  useEffect(() => {
-    if (bottomDrawerOpen) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-  }, [bottomDrawerOpen]);
 
   return (
     <div className="py-14  pb-48 px-5 md:px-14 3xl:px-32 w-full">
@@ -352,6 +345,8 @@ export default function Component({ params }: Route.ComponentProps) {
       <Drawer
         open={bottomDrawerOpen}
         onCancel={() => setBottomDrawerOpen(false)}
+        drawerPosition="bottom"
+        height={90}
       >
         <div>
           {/* Filter */}

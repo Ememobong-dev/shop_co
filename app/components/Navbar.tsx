@@ -5,34 +5,22 @@ import cartIcon from "../assets/svgs/black-cart.svg";
 import profileIcon from "../assets/svgs/black-profile.svg";
 import searchIconForMobile from "../assets/svgs/mobile-nav-search-icon.svg";
 import hamburger from "../assets/svgs/hamburger.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import cancelIcon from "app/assets/svgs/cancel-white.svg";
 import { Link } from "react-router";
 import arrowUp from "../assets/svgs/arrow-up.svg";
-
-
+import { Drawer } from "./Drawer/Drawer";
 
 export const Navbar = () => {
   const [drawerOpened, setDrawerOpened] = useState(false);
   const [shopDropdown, setShopDropdown] = useState(false);
   const [multipleDropdown, setMultipleDropdown] = useState(false);
+  const [activeTab, setActiveTab] = useState("Home");
 
   const handleMobileHamburger = () => {
     console.log("Hamburger clicked");
     setDrawerOpened(true);
   };
-
-  const handleCloseDrawer = () => {
-    setDrawerOpened(false);
-  };
-
-  useEffect(() => {
-    if (drawerOpened) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-  }, [drawerOpened]);
 
   return (
     <div className="w-full py-5 md:py-10 px-5 md:px-14 3xl:px-32">
@@ -48,7 +36,10 @@ export const Navbar = () => {
           >
             <p>Shop</p>
             <span>
-              <img src={shopDropdown ? arrowUp : dropdownArrow} alt="brand_logo" />
+              <img
+                src={shopDropdown ? arrowUp : dropdownArrow}
+                alt="brand_logo"
+              />
             </span>
           </div>
           <div
@@ -58,7 +49,10 @@ export const Navbar = () => {
           >
             <p>Multiple Dropdown</p>
             <span>
-              <img src={multipleDropdown ? arrowUp : dropdownArrow} alt="brand_logo" />
+              <img
+                src={multipleDropdown ? arrowUp : dropdownArrow}
+                alt="brand_logo"
+              />
             </span>
           </div>
           <span>
@@ -74,91 +68,76 @@ export const Navbar = () => {
           {/* DROPDOWNS */}
           {shopDropdown && (
             // <div className=" ">
-              <div className="rounded-xl absolute top-8 bg-amber-200 p-4 z-50">
-                <div className=" flex text-black flex-col gap-4">
-                  <span>
-                    <p>Shop Outlet 1</p>
-                  </span>
-                  <span>
-                    <p>Shop Outlet 2</p>
-                  </span>
-                  <span>
-                    <p>Shop Outlet 3</p>
-                  </span>
-                  <span>
-                    <p>Shop Outlet 4</p>
-                  </span>
-                  <span>
-                    <p>Shop Outlet 5</p>
-                  </span>
-                </div>
+            <div className="rounded-xl absolute top-8 bg-amber-200 p-4 z-50">
+              <div className=" flex text-black flex-col gap-4">
+                <span>
+                  <p>Shop Outlet 1</p>
+                </span>
+                <span>
+                  <p>Shop Outlet 2</p>
+                </span>
+                <span>
+                  <p>Shop Outlet 3</p>
+                </span>
+                <span>
+                  <p>Shop Outlet 4</p>
+                </span>
+                <span>
+                  <p>Shop Outlet 5</p>
+                </span>
               </div>
+            </div>
             // </div>
           )}
 
           {/*MULTIPLE DROPDOWNS */}
           {multipleDropdown && (
             // <div className=" ">
-              <div className="transition-all duration-300 ease-in-out origin-top opacity-100 scale-100 rounded-xl absolute top-8 bg-amber-200  z-50">
-                <div className="flex justify-between p-4 w-full text-black">
-                  <div>
-                    <button className="bg-amber-900 text-white py-2 px-8 rounded-lg flex justify-center items-center">Headquaters</button>
-                    <div className="flex flex-col gap-4 mt-6 ">
-                      <span>
-                        <p>
-                          Ikorodu(yes I said so)
-                        </p>
-                      </span>
-                      <span>
-                        <p>
-                          Ikeja
-                        </p>
-                      </span>
-                      <span>
-                        <p>
-                          Sango
-                        </p>
-                      </span>
-                      <span>
-                        <p>
-                          Eleyele
-                        </p>
-                      </span>
-                      <span>
-                        <p>
-                          Nothing for Moniya and Agbowo people
-                        </p>
-                      </span>
-                    </div>
+            <div className="transition-all duration-300 ease-in-out origin-top opacity-100 scale-100 rounded-xl absolute top-8 bg-amber-200  z-50">
+              <div className="flex justify-between p-4 w-full text-black">
+                <div>
+                  <button className="bg-amber-900 text-white py-2 px-8 rounded-lg flex justify-center items-center">
+                    Headquaters
+                  </button>
+                  <div className="flex flex-col gap-4 mt-6 ">
+                    <span>
+                      <p>Ikorodu(yes I said so)</p>
+                    </span>
+                    <span>
+                      <p>Ikeja</p>
+                    </span>
+                    <span>
+                      <p>Sango</p>
+                    </span>
+                    <span>
+                      <p>Eleyele</p>
+                    </span>
+                    <span>
+                      <p>Nothing for Moniya and Agbowo people</p>
+                    </span>
                   </div>
-                  <div>
-                    <button className="bg-amber-900 text-white py-2 px-8 rounded-lg flex justify-center items-center">Made in Locations</button>
-                    <div className="flex flex-col gap-4 mt-6 ">
-                      <span>
-                        <p>
-                         China
-                        </p>
-                      </span>
-                      <span>
-                        <p>
-                          Italy
-                        </p>
-                      </span>
-                      <span>
-                        <p>
-                          Nigeria
-                        </p>
-                      </span>
-                      <span>
-                        <p>
-                          Japan
-                        </p>
-                      </span>
-                     
-                    </div>
+                </div>
+                <div>
+                  <button className="bg-amber-900 text-white py-2 px-8 rounded-lg flex justify-center items-center">
+                    Made in Locations
+                  </button>
+                  <div className="flex flex-col gap-4 mt-6 ">
+                    <span>
+                      <p>China</p>
+                    </span>
+                    <span>
+                      <p>Italy</p>
+                    </span>
+                    <span>
+                      <p>Nigeria</p>
+                    </span>
+                    <span>
+                      <p>Japan</p>
+                    </span>
                   </div>
                 </div>
               </div>
+            </div>
             // </div>
           )}
         </div>
@@ -214,72 +193,68 @@ export const Navbar = () => {
       </div>
 
       {/* MOBILE DRAWER */}
-      {drawerOpened && <MobileDrawer close={handleCloseDrawer} />}
-    </div>
-  );
-};
-
-const MobileDrawer = ({ close }: { close?: () => void }) => {
-  const [activeTab, setActiveTab] = useState("Home");
-
-  return (
-    <div className="fixed inset-0 z-50 bg-black/10 lg:hidden" onClick={close}>
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className={`bg-white visible py-8 px-10 w-[80%] h-screen z-50 ease-in transition-all lg:hidden`}
-      >
-        <div className="flex justify-end">
-          <button
-            onClick={close}
-            className="flex justify-center items-center py-2 px-4 rounded-lg bg-black/70 mb-6"
-          >
-            <img
-              src={cancelIcon}
-              className="cursor-pointer"
-              alt="cancel_icon"
-            />
-          </button>
-        </div>
-
-        <div className="flex flex-col gap-5">
+      {drawerOpened && (
+        <Drawer
+          open={drawerOpened}
+          onCancel={() => setDrawerOpened(false)}
+          drawerPosition="top"
+          width={80}
+          className="divide-y w-[80%] divide-black/10"
+        >
           <div>
-            <p
-              onClick={() => setActiveTab("Home")}
-              className={` ${
-                activeTab === "Home"
-                  ? "font-bold text-2xl text-blue-300"
-                  : "text-lg text-black font-normal"
-              }`}
-            >
-              HOME
-            </p>
+            <div className="flex justify-end">
+              <button
+                onClick={() => setDrawerOpened(false)}
+                className="flex justify-center items-center py-2 px-4 rounded-lg bg-black/70 mb-6"
+              >
+                <img
+                  src={cancelIcon}
+                  className="cursor-pointer"
+                  alt="cancel_icon"
+                />
+              </button>
+            </div>
+            <div className="flex flex-col gap-5">
+              <div>
+                <p
+                  onClick={() => setActiveTab("Home")}
+                  className={` ${
+                    activeTab === "Home"
+                      ? "font-bold text-2xl text-blue-300"
+                      : "text-lg text-black font-normal"
+                  }`}
+                >
+                  HOME
+                </p>
+              </div>
+              <div>
+                <p
+                  onClick={() => setActiveTab("Cart")}
+                  className={` ${
+                    activeTab === "Cart"
+                      ? "font-bold text-2xl text-blue-300"
+                      : "text-lg text-black font-normal"
+                  }`}
+                >
+                  CART
+                </p>
+              </div>
+              <div>
+                <p
+                  onClick={() => setActiveTab("Profile")}
+                  className={` ${
+                    activeTab === "Profile"
+                      ? "font-bold text-2xl text-blue-300"
+                      : "text-lg text-black font-normal"
+                  }`}
+                >
+                  Profile
+                </p>
+              </div>
+            </div>
           </div>
-          <div>
-            <p
-              onClick={() => setActiveTab("Cart")}
-              className={` ${
-                activeTab === "Cart"
-                  ? "font-bold text-2xl text-blue-300"
-                  : "text-lg text-black font-normal"
-              }`}
-            >
-              CART
-            </p>
-          </div>
-          <div>
-            <p
-              onClick={() => setActiveTab("Profile")}
-              className={` ${
-                activeTab === "Profile"
-                  ? "font-bold text-2xl text-blue-300"
-                  : "text-lg text-black font-normal"
-              }`}
-            >
-              Profile
-            </p>
-          </div>
-        </div>
-      </div>
+        </Drawer>
+      )}
     </div>
   );
 };
