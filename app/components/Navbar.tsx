@@ -152,9 +152,9 @@ export const Navbar = () => {
           />
         </div>
         <div className="flex gap-4">
-          <span>
-            <img className="cursor-pointer" src={cartIcon} alt="brand_logo" />
-          </span>
+          <a href="/cart">
+            <img src={cartIcon} alt="brand_logo" />
+          </a>
           <span>
             <img
               className="cursor-pointer"
@@ -183,9 +183,9 @@ export const Navbar = () => {
           <span>
             <img src={searchIconForMobile} alt="brand_logo" />
           </span>
-          <span>
+          <a href="/cart">
             <img src={cartIcon} alt="brand_logo" />
-          </span>
+          </a>
           <span>
             <img src={profileIcon} alt="brand_logo" />
           </span>
