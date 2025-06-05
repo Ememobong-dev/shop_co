@@ -24,7 +24,14 @@ const Cart = () => {
               ))}
             </div>
           </div>
-          <div className="w-[40%]"></div>
+          <div className="w-[40%] flex flex-col gap-5 h-auto border border-black/10 rounded-3xl py-5 px-6 ">
+            <div>
+              <h3>Order Summary</h3>
+              <div className="flex flex-col gap-4">
+                <div className="flex justify-between items-center"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

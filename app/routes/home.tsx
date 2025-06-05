@@ -76,7 +76,7 @@ export default function Home() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 500; // You can adjust this value
+      const scrollAmount = 500;
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -220,7 +220,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* fifth -- testimonials */}
+        {/* fifth Testimonials */}
         <div>
           <div className="flex items-center justify-between">
             <h3 className="text-3xl lg:text-5xl mb-16 font-integral-bold ">
