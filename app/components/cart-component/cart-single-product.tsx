@@ -4,9 +4,6 @@ import thumbnail2 from "../../assets/svgs/product-detail-svg/thumbnail2.svg";
 import minusIcon from "../../assets/svgs/product-detail-svg/minusIcon.svg";
 import plusIcon from "../../assets/svgs/product-detail-svg/plusIcon.svg";
 
-
-
-
 export const CartSingleProduct = ({
   imgSrc,
   size,
@@ -20,34 +17,34 @@ export const CartSingleProduct = ({
   color: string;
   productPrice: number;
 }) => {
-      const [quantityNeeded, setQuantityNeeded] = useState(1);
-    
+  const [quantityNeeded, setQuantityNeeded] = useState(1);
+
   return (
-    <div className="p-4 flex justify-between w-full">
-      <div className="flex gap-4 shrink-0">
+    <div className="flex justify-between items-stretch w-full">
+      <div className="w-1/2 min-h-full flex gap-4 shrink-0">
         <span>
           <img src={imgSrc} alt="" />
         </span>
-        <div className="flex justify-between">
+        <div className="flex flex-col justify-between">
           <div>
-            <p> {productName} </p>
-            <p>
-              Size: <span>{size}</span>
+            <p className="font-satoshi-bold text-xl"> {productName} </p>
+            <p className="font-satoshi-reg text-black text-sm">
+              Size: <span className="text-black/60">{size}</span>
             </p>
-            <p>
-              Color: <span>{color}</span>
+            <p className="font-satoshi-reg text-black text-sm">
+              Color: <span className="text-black/60">{color}</span>
             </p>
           </div>
-          <div>
-            <p>{productPrice}</p>
+          <div className="text-black">
+            <p className="font-satoshi-bold text-2xl">${productPrice}</p>
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-bteween w-full">
+      <div className="w-1/2 min-h-full flex flex-col items-end justify-between">
         <span>
           <img src={deleteIcon} alt="" />
         </span>
-        <div className="bg-white-50 text-black/60 rounded-full  flex justify-between items-center w-1/2 py-3 px-5 ">
+        <div className="bg-white-50 text-black/60 rounded-full  w-40 flex justify-between items-center  py-3 px-5 ">
           <span>
             <img
               src={minusIcon}

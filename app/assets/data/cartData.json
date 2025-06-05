@@ -1,0 +1,23 @@
+[
+    {
+        "name" : "Gradient Graphic T-shirt",
+        "Size": "Large",
+        "color": "White",
+        "price": 145,
+        "image": "/public/carts/img1.svg"
+    },
+    {
+        "name" : "CHECKERED SHIRT",
+        "Size": "Medium",
+        "color": "Red",
+        "price": 180,
+        "image": "/public/carts/img2.svg"
+    },
+    {
+        "name" : "SKINNY FIT JEANS",
+        "Size": "Large",
+        "color": "Blue",
+        "price": 240,
+        "image": "/public/carts/im3.svg"
+    }
+]
