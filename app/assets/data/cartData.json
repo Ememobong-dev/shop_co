@@ -7,14 +7,14 @@
         "image": "/public/carts/img1.svg"
     },
     {
-        "name" : "CHECKERED SHIRT",
+        "name" : "Checkered Shirt",
         "Size": "Medium",
         "color": "Red",
         "price": 180,
         "image": "/public/carts/img2.svg"
     },
     {
-        "name" : "SKINNY FIT JEANS",
+        "name" : "Skinny Fit Jeans",
         "Size": "Large",
         "color": "Blue",
         "price": 240,

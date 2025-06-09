@@ -29,53 +29,61 @@ const Cart = () => {
             </div>
           </div>
           <div className="w-[40%] flex flex-col gap-5 h-auto border border-black/10 rounded-3xl py-5 px-6 ">
-            <div>
-              <h3 className="text-2xl font-satoshi-bold text-black">
-                Order Summary
-              </h3>
-              <div className="flex flex-col gap-4">
-                <div className="flex justify-between items-center">
-                  <p>Subtotal</p>
-                  <p>$565</p>
-                </div>
-                <div className="flex justify-between items-center">
-                  <p>Discount (-20%)</p>
-                  <p>-$113</p>
-                </div>
-                <div className="flex justify-between items-center">
-                  <p>Delivery Fee</p>
-                  <p>$15</p>
-                </div>
-                <hr className="my-5 border-black/10" />
-
-                <div className="flex justify-between items-center">
-                  <p>Total</p>
-                  <p>$467</p>
-                </div>
-                <div className="flex gap-3">
-                  <div className="flex gap-3 py-3 px-3 rounded-full bg-white">
-                    <span>
-                      <img src={couponIcon} alt="couponIcon" />
-                    </span>
-                    <input
-                      className="bg-transparent focus:border-none focus:outline-0 placeholder-black/40 w-full text-sm"
-                      placeholder="Add promo code"
-                      type="text"
-                      name=""
-                      id=""
-                    />
-                  </div>
-                  <Button variant="filled" text="Apply" />
-                </div>
-                <Button
-                  variant="filled"
-                  size="md"
-                  fullWidth
-                  text="Go to Checkout"
-                  icon={whiteArrow}
-                />
+            {/* <div > */}
+            <h3 className="text-2xl font-satoshi-bold text-black">
+              Order Summary
+            </h3>
+            <div className="flex flex-col gap-4">
+              <div className="flex justify-between items-center">
+                <p className="text-xl text-black/60 font-satoshi-reg">
+                  Subtotal
+                </p>
+                <p className="font-satoshi-bold text-xl text-black">$565</p>
               </div>
+              <div className="flex justify-between items-center">
+                <p className="text-xl text-black/60 font-satoshi-reg">
+                  Discount (-20%)
+                </p>
+                <p className="text-[#FF3333] font-satoshi-bold text-xl ">
+                  -$113
+                </p>
+              </div>
+              <div className="flex justify-between items-center">
+                <p className="text-xl text-black/60 font-satoshi-reg">
+                  Delivery Fee
+                </p>
+                <p className="font-satoshi-bold text-xl text-black">$15</p>
+              </div>
+              <hr className="border-black/10" />
+
+              <div className="flex justify-between items-center">
+                <p className="text-xl text-black font-satoshi-reg">Total</p>
+                <p className="font-satoshi-bold text-2xl text-black">$467</p>
+              </div>
+              <div className="flex gap-3 mb-2">
+                <div className="flex flex-auto gap-3 py-3 px-3 rounded-full bg-[#F0F0F0]">
+                  <span>
+                    <img src={couponIcon} alt="couponIcon" />
+                  </span>
+                  <input
+                    className="bg-transparent focus:border-none focus:outline-0 placeholder-black/40 w-full text-sm"
+                    placeholder="Add promo code"
+                    type="text"
+                    name=""
+                    id=""
+                  />
+                </div>
+                <Button variant="filled" text="Apply" />
+              </div>
+              <Button
+                variant="filled"
+                size="md"
+                fullWidth
+                text="Go to Checkout"
+                icon={whiteArrow}
+              />
             </div>
+            {/* </div> */}
           </div>
         </div>
       </div>

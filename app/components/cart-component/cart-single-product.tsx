@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import deleteIcon from "../../assets/svgs/deleteIcon.svg";
-import thumbnail2 from "../../assets/svgs/product-detail-svg/thumbnail2.svg";
 import minusIcon from "../../assets/svgs/product-detail-svg/minusIcon.svg";
 import plusIcon from "../../assets/svgs/product-detail-svg/plusIcon.svg";
 
@@ -42,7 +41,7 @@ export const CartSingleProduct = ({
       </div>
       <div className="w-1/2 min-h-full flex flex-col items-end justify-between">
         <span>
-          <img src={deleteIcon} alt="" />
+          <img className="cursor-pointer" src={deleteIcon} alt="" />
         </span>
         <div className="bg-white-50 text-black/60 rounded-full  w-40 flex justify-between items-center  py-3 px-5 ">
           <span>
