@@ -242,18 +242,17 @@ export default function Home() {
                 key={index}
                 className="flex flex-col gap-y-4  border rounded-lg !w-[500px] h-[250px] border-black/10 p-7 shrink-0"
               >
-                <div className="flex gap-2">
-                  {(() => {
+                <div className="flex gap-2">\\\                  {(() => {
                     const { wholeValue, halfValue } = ratingFn(item.ratings);
                     return (
                       <>
-                        {[...Array(wholeValue)].map((_, index) => (
+                        {[...Array(wholeValue)].map((item, index) => (
                           <span key={index}>
                             <img src={fullStar} alt="" />
                           </span>
                         ))}
                         {halfValue ? (
-                          <span>
+                            <span>
                             <img src={halfStar} alt="" />
                           </span>
                         ) : null}
